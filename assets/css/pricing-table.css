@@ -1,0 +1,159 @@
+.elementor-widget-container:has(.pte-pricing-table-container) {
+  height: 100%;
+}
+
+.elementor-widget-wrap:has(
+    .elementor-element .elementor-widget-container .pte-pricing-table-container
+  ) {
+  flex-direction: column;
+}
+
+.elementor-widget-pricing_table {
+  flex: 1 1 auto;
+}
+
+.pte-pricing-table-container {
+  display: flex;
+  justify-content: start;
+  height: 100%;
+}
+
+.pte-pricing-table-container.auto-height {
+  height: auto;
+}
+
+.pricing-table-elementor-widget {
+  max-width: 100%;
+  width: 100%;
+  font-family: "Roboto", Sans-serif;
+}
+
+.pricing-table-elementor-widget.style-1 {
+  background-color: #fff;
+  border: 1px solid rgba(47, 43, 67, 0.1);
+  border-radius: 24px;
+  box-shadow: inset 0 -1px #2f2b431a, 0 1px 3px #2f2b431a;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-table-elementor-widget.style-1 .main-icon {
+  margin-bottom: 16px;
+}
+
+.pricing-table-elementor-widget.style-1 .main-icon span {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #2f2b431a;
+  border-radius: 100%;
+  box-shadow: 0px 1px 3px 0px #2f2b431a;
+  background-color: #fff;
+  color: #000;
+}
+
+.pricing-table-elementor-widget.style-1 .package {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 140%;
+  letter-spacing: -0.3px;
+  color: rgb(47, 43, 67);
+  margin-bottom: 8px;
+}
+
+.pricing-table-elementor-widget.style-1 > .description,
+.pricing-table-elementor-widget.style-1 .pricing .duration {
+  font-weight: 400;
+  color: rgba(47, 43, 67, 0.6);
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: -0.3px;
+}
+
+.pricing-table-elementor-widget.style-1 > .description,
+.pricing-table-elementor-widget.style-1 .pricing {
+  margin-bottom: 16px;
+}
+
+.pricing-table-elementor-widget.style-1 .pricing .price {
+  font-weight: 600;
+  color: rgb(47, 43, 67);
+  font-size: 48px;
+  line-height: 120%;
+  letter-spacing: -0.8px;
+}
+
+.pricing-table-elementor-widget.style-1 .features {
+  border: 1px solid #2f2b431a;
+  border-left: none;
+  border-right: none;
+  padding: 20px 0;
+}
+
+.pricing-table-elementor-widget.style-1 .included {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pricing-table-elementor-widget.style-1 .included .item {
+  display: flex;
+  gap: 15px;
+}
+
+.pricing-table-elementor-widget.style-1 .included .item .icon span {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #2f2b431a;
+  box-shadow: 0px 1px 3px 0px #2f2b431a;
+  border-radius: 100%;
+  background-color: #fff;
+}
+
+.pricing-table-elementor-widget.style-1 .included .item .text .heading {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.pricing-table-elementor-widget.style-1 .included .item .text .description {
+  font-size: 14px;
+  font-weight: 400;
+  color: #2f2b4399;
+}
+
+.pricing-table-elementor-widget.style-1 .button-wrapper {
+  margin-top: auto;
+}
+
+.pricing-table-elementor-widget.style-1 .button-wrapper.flex {
+  display: flex;
+}
+
+.pricing-table-elementor-widget.style-1 .button-wrapper .button-link {
+  display: flex;
+  justify-content: center;
+  padding: 12px 32px;
+  background-color: #2a2a2a;
+  box-shadow: 0px 1px 3px 0px #2f2b431a;
+  border-radius: 12px;
+  margin-top: 20px;
+  transition: all 0.3s;
+}
+
+.pricing-table-elementor-widget.style-1 .button-wrapper .button-link:hover {
+  background-color: #000;
+}
+
+.pricing-table-elementor-widget.style-1 .button-wrapper .button-text {
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+}
