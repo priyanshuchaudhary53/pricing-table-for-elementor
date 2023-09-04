@@ -25,7 +25,7 @@
 .pricing-table-elementor-widget {
   max-width: 100%;
   width: 100%;
-  font-family: "Roboto", Sans-serif;
+  font-family: "Inter", Sans-serif;
 }
 
 .pricing-table-elementor-widget.style-1 {
@@ -36,6 +36,19 @@
   padding: 24px;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.pricing-table-elementor-widget.style-1 .badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background-color: #2a2a2a;
+  border-radius: 100px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 4px 12px;
 }
 
 .pricing-table-elementor-widget.style-1 .main-icon {

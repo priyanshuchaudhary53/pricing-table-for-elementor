@@ -124,6 +124,41 @@ class PricingTable extends Widget_Base
          * 
          */
 
+        /**  Badge Section Start **/
+        $this->start_controls_section(
+            'badge_section',
+            [
+                'label' => __('Badge', 'simple-pricing-table-elementor'),
+                'tab' => Controls_Manager::TAB_CONTENT,
+            ]
+        );
+
+        $this->add_control(
+            'show_badge',
+            [
+                'label' => __('Show Badge', 'simple-pricing-table-elementor'),
+                'type' => Controls_Manager::SWITCHER,
+                'return_value' => 'yes',
+                'default' => 'yes',
+            ]
+        );
+
+        $this->add_control(
+            'badge_text',
+            [
+                'type' => Controls_Manager::TEXT,
+                'label' => __('Badge Text', 'simple-pricing-table-elementor'),
+                'input_type' => 'text',
+                'default' => __('Most popular', 'simple-pricing-table-elementor'),
+                'condition' => [
+                    'show_badge' => 'yes',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+        /**  Badge Section End **/
+
         /**  Icon Section Start **/
         $this->start_controls_section(
             'icon_section',
@@ -483,9 +518,10 @@ class PricingTable extends Widget_Base
             [
                 'label' => __('Padding', 'simple-pricing-table-elementor'),
                 'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+                'size_units' => ['px', 'rem', 'custom'],
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget.style-1' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .badge' => 'top: {{TOP}}{{UNIT}}; right: {{RIGHT}}{{UNIT}}',
                 ],
                 'separator' => 'before',
             ]
@@ -494,6 +530,106 @@ class PricingTable extends Widget_Base
 
         $this->end_controls_section();
         /**  Style Section End **/
+
+        /**  Badge Section Start **/
+        $this->start_controls_section(
+            'badge_style_section',
+            [
+                'label' => __('Badge', 'simple-pricing-table-elementor'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'badge_text_color',
+            [
+                'label' => __('Text Color', 'simple-pricing-table-elementor'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .badge' => 'color: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'badge_bg_color',
+            [
+                'label' => __('Background Color', 'simple-pricing-table-elementor'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .badge' => 'background-color: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'badge_typography',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .badge',
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Text_Stroke::get_type(),
+            [
+                'name' => 'badge_text_stroke',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .badge',
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Text_Shadow::get_type(),
+            [
+                'name' => 'badge_text_shadow',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .badge'
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'badge_border',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .badge',
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'badge_border_radius',
+            [
+                'label' => __('Border Radius', 'simple-pricing-table-elementor'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+                'selectors' => [
+                    '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .badge' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'badge_box_shadow',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .badge',
+            ]
+        );
+
+        $this->add_control(
+            'badge_padding',
+            [
+                'label' => esc_html__('Padding', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+                'selectors' => [
+                    '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .badge' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'separator' => 'before',
+            ]
+        );
+
+        $this->end_controls_section();
+        /**  Badge Section End **/
 
         /**  Main Icon Section Start **/
         $this->start_controls_section(
@@ -1408,6 +1544,12 @@ class PricingTable extends Widget_Base
 
                 <?php if ($style === 'style1'): ?>
 
+                    <?php if ($settings['show_badge'] === 'yes' && $settings['badge_text'] !== ''): ?>
+                        <div class="badge">
+                            <?php echo $settings['badge_text']; ?>
+                        </div>
+                    <?php endif; ?>
+
                     <?php if ($settings['show_icon'] === 'yes'): ?>
                         <div class="main-icon">
                             <span>
@@ -1539,80 +1681,93 @@ class PricingTable extends Widget_Base
 
                                 <# if(settings.pricing_table_style==='style1' ) { #>
 
-                                    <# if(settings.show_icon==='yes' ) { #>
-                                        <# var mainIcon=elementor.helpers.renderIcon( view, settings.main_icon, { 'aria-hidden'
-                                            : true }, 'i' , 'object' ); #>
-                                            <div class="main-icon"><span>{{{mainIcon.value}}}</span></div>
-                                            <# } #>
+                                    <# if (settings.show_badge==='yes' && settings.badge_text !=='' ) { #>
+                                        <div class="badge">
+                                            {{{settings.badge_text}}}
+                                        </div>
+                                        <# } #>
 
-                                                <div class='package'>{{{settings.package}}}</div>
-
-                                                <# if (settings.package_description) { #>
-                                                    <div class='description'>{{{settings.package_description}}}</div>
+                                            <# if(settings.show_icon==='yes' ) { #>
+                                                <# var mainIcon=elementor.helpers.renderIcon( view, settings.main_icon,
+                                                    { 'aria-hidden' : true }, 'i' , 'object' ); #>
+                                                    <div class="main-icon"><span>{{{mainIcon.value}}}</span></div>
                                                     <# } #>
 
-                                                        <div class="pricing">
-                                                            <span class="price">{{{settings.package_price}}}</span>
-                                                            <# if (settings.package_duration !=='lifetime' ) { if
-                                                                (settings.package_duration==='monthly' ) { var
-                                                                duration_text='/month' }else { duration_text='/year' } #>
-                                                                <span class="duration">{{{duration_text}}}</span>
-                                                                <# } #>
-                                                        </div>
+                                                        <div class='package'>{{{settings.package}}}</div>
 
-                                                        <div class="features">
+                                                        <# if (settings.package_description) { #>
+                                                            <div class='description'>{{{settings.package_description}}}</div>
+                                                            <# } #>
 
-                                                            <# if (settings.package_pros) { #>
-                                                                <div class="included">
-                                                                    <# _.each(settings.package_pros, function(item, index) { #>
-                                                                        <div class="item">
-                                                                            <# if ( item.icon || item.item_icon.value ) { #>
-                                                                                <# iconsHTML[ index
-                                                                                    ]=elementor.helpers.renderIcon( view,
-                                                                                    item.item_icon, { 'aria-hidden' : true
-                                                                                    }, 'i' , 'object' ); #>
-                                                                                    <div class="icon"><span>{{{iconsHTML[ index
-                                                                                            ].value}}}</span>
-                                                                                    </div>
-                                                                                    <# } #>
-                                                                                        <div class="text">
-                                                                                            <div class="heading">
-                                                                                                {{{item.item_title}}}
-                                                                                            </div>
-                                                                                            <div class="description">
-                                                                                                {{{item.item_description}}}
-                                                                                            </div>
-                                                                                        </div>
-                                                                        </div>
-                                                                        <# } ); #>
+                                                                <div class="pricing">
+                                                                    <span class="price">{{{settings.package_price}}}</span>
+                                                                    <# if (settings.package_duration !=='lifetime' ) { if
+                                                                        (settings.package_duration==='monthly' ) { var
+                                                                        duration_text='/month' }else { duration_text='/year' }
+                                                                        #>
+                                                                        <span class="duration">{{{duration_text}}}</span>
+                                                                        <# } #>
                                                                 </div>
-                                                                <# } #>
 
-                                                                    <# } #>
+                                                                <div class="features">
 
-                                                        </div>
+                                                                    <# if (settings.package_pros) { #>
+                                                                        <div class="included">
+                                                                            <# _.each(settings.package_pros, function(item,
+                                                                                index) { #>
+                                                                                <div class="item">
+                                                                                    <# if ( item.icon || item.item_icon.value )
+                                                                                        { #>
+                                                                                        <# iconsHTML[ index
+                                                                                            ]=elementor.helpers.renderIcon(
+                                                                                            view, item.item_icon,
+                                                                                            { 'aria-hidden' : true }, 'i'
+                                                                                            , 'object' ); #>
+                                                                                            <div class="icon">
+                                                                                                <span>{{{iconsHTML[ index
+                                                                                                    ].value}}}</span>
+                                                                                            </div>
+                                                                                            <# } #>
+                                                                                                <div class="text">
+                                                                                                    <div class="heading">
+                                                                                                        {{{item.item_title}}}
+                                                                                                    </div>
+                                                                                                    <div class="description">
+                                                                                                        {{{item.item_description}}}
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                </div>
+                                                                                <# } ); #>
+                                                                        </div>
+                                                                        <# } #>
 
-                                                        <# if(settings.button_text !=='' ) { #>
-                                                            <# var button_classes='button-wrapper' ; #>
-                                                                <# if(settings.button_full_width !=='yes' ) { button_classes
-                                                                    +=' flex' ; } #>
-                                                                    <div class="{{button_classes}}">
+                                                                            <# } #>
 
-                                                                        <# var btn_link_class='button-link' ; #>
-                                                                            <# if(settings.button_hover_animation !=='' ) {
-                                                                                btn_link_class +=' elementor-animation-' +
-                                                                                settings.button_hover_animation; }
-                                                                                view.addRenderAttribute( 'button_class' ,
-                                                                                { 'class' : btn_link_class } ); #>
-                                                                                <a href="{{settings.button_link.url}}" {{{
-                                                                                    view.getRenderAttributeString( 'button_class'
-                                                                                    ) }}}>
-                                                                                    <span class="button-text">
-                                                                                        {{{settings.button_text}}}
-                                                                                    </span>
-                                                                                </a>
-                                                                    </div>
-                                                                    <# } #>
+                                                                </div>
+
+                                                                <# if(settings.button_text !=='' ) { #>
+                                                                    <# var button_classes='button-wrapper' ; #>
+                                                                        <# if(settings.button_full_width !=='yes' ) {
+                                                                            button_classes +=' flex' ; } #>
+                                                                            <div class="{{button_classes}}">
+
+                                                                                <# var btn_link_class='button-link' ; #>
+                                                                                    <# if(settings.button_hover_animation !==''
+                                                                                        ) { btn_link_class
+                                                                                        +=' elementor-animation-' +
+                                                                                        settings.button_hover_animation; }
+                                                                                        view.addRenderAttribute( 'button_class'
+                                                                                        , { 'class' : btn_link_class } ); #>
+                                                                                        <a href="{{settings.button_link.url}}"
+                                                                                            {{{
+                                                                                            view.getRenderAttributeString( 'button_class'
+                                                                                            ) }}}>
+                                                                                            <span class="button-text">
+                                                                                                {{{settings.button_text}}}
+                                                                                            </span>
+                                                                                        </a>
+                                                                            </div>
+                                                                            <# } #>
                             </div>
 
                 </div>
