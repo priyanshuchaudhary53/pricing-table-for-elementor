@@ -8,18 +8,18 @@
   flex-direction: column;
 }
 
-.elementor-widget-pricing_table {
+.elementor-widget-pricing_table:has(.elementor-widget-container .full-height) {
   flex: 1 1 auto;
 }
 
 .pte-pricing-table-container {
   display: flex;
   justify-content: start;
-  height: 100%;
+  height: auto;
 }
 
-.pte-pricing-table-container.auto-height {
-  height: auto;
+.pte-pricing-table-container.full-height {
+  height: 100%;
 }
 
 .pricing-table-elementor-widget {
@@ -39,6 +39,21 @@
   position: relative;
 }
 
+.pricing-table-elementor-widget.style-2 {
+  --box-shadow-color: 255 255 255;
+  background-color: #000;
+  border: 1px solid #333;
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px rgb(var(--box-shadow-color) / 7%),
+    0 2px 4px rgb(var(--box-shadow-color) / 5%),
+    0 12px 24px rgb(var(--box-shadow-color) / 5%);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
 .pricing-table-elementor-widget.style-1 .badge {
   position: absolute;
   top: 24px;
@@ -49,6 +64,31 @@
   font-size: 14px;
   font-weight: 400;
   padding: 4px 12px;
+  line-height: 150%;
+}
+
+.pricing-table-elementor-widget.style-2 .badge-wrapper {
+  width: 100%;
+  height: 30%;
+  position: absolute;
+  top: -15%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pricing-table-elementor-widget.style-2 .badge {
+  display: inline-block;
+  background-color: #efefef;
+  border-radius: 100px;
+  padding: 14px 22px;
+  color: #000;
+  box-shadow: 0 8px 30px hsla(0, 0%, 100%, 0.1);
+  font-size: 12px;
+  line-height: 150%;
+  font-weight: 700;
 }
 
 .pricing-table-elementor-widget.style-1 .main-icon {
@@ -78,6 +118,13 @@
   margin-bottom: 8px;
 }
 
+.pricing-table-elementor-widget.style-2 .package {
+  color: #ededed;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 150%;
+}
+
 .pricing-table-elementor-widget.style-1 > .description,
 .pricing-table-elementor-widget.style-1 .pricing .duration {
   font-weight: 400;
@@ -85,6 +132,28 @@
   font-size: 16px;
   line-height: 140%;
   letter-spacing: -0.3px;
+}
+
+.pricing-table-elementor-widget.style-2 > .description,
+.pricing-table-elementor-widget.style-2 .included .item .text .description {
+  color: #888888;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.pricing-table-elementor-widget.style-2 .included .item .text .heading {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.pricing-table-elementor-widget.style-2 .pricing .duration {
+  color: #ededed;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
 }
 
 .pricing-table-elementor-widget.style-1 > .description,
@@ -100,6 +169,13 @@
   letter-spacing: -0.8px;
 }
 
+.pricing-table-elementor-widget.style-2 .pricing .price {
+  color: #ededed;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 150%;
+}
+
 .pricing-table-elementor-widget.style-1 .features {
   border: 1px solid #2f2b431a;
   border-left: none;
@@ -107,13 +183,17 @@
   padding: 20px 0;
 }
 
-.pricing-table-elementor-widget.style-1 .included {
+.pricing-table-elementor-widget.style-2 .features {
+  padding: 24px 0;
+}
+
+.pricing-table-elementor-widget .included {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.pricing-table-elementor-widget.style-1 .included .item {
+.pricing-table-elementor-widget .included .item {
   display: flex;
   gap: 15px;
 }
@@ -131,15 +211,29 @@
   background-color: #fff;
 }
 
+.pricing-table-elementor-widget.style-2 .included .item .icon span {
+  font-size: 10px;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: #fff;
+}
+
 .pricing-table-elementor-widget.style-1 .included .item .text .heading {
   font-size: 16px;
   font-weight: 500;
+  line-height: 150%;
 }
 
 .pricing-table-elementor-widget.style-1 .included .item .text .description {
   font-size: 14px;
   font-weight: 400;
   color: #2f2b4399;
+  line-height: 150%;
 }
 
 .pricing-table-elementor-widget.style-1 .button-wrapper {
@@ -169,4 +263,5 @@
   font-size: 16px;
   font-weight: 400;
   color: #fff;
+  line-height: 150%;
 }
