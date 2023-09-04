@@ -24,6 +24,7 @@ use Elementor\Group_Control_Text_Stroke;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Icons_Manager;
 use Elementor\Repeater;
+use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 
 // Security Note: Blocks direct access to the plugin PHP files.
 defined('ABSPATH') || die();
@@ -1211,6 +1212,157 @@ class PricingTable extends Widget_Base
             ]
         );
 
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'button_typography',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .button-wrapper .button-text',
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Text_Shadow::get_type(),
+            [
+                'name' => 'text_shadow',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .button-wrapper .button-text',
+            ]
+        );
+
+        $this->start_controls_tabs('tabs_button_style');
+
+        $this->start_controls_tab(
+            'tab_button_normal',
+            [
+                'label' => __('Normal', 'simple-pricing-table-elementor')
+            ]
+        );
+
+        $this->add_control(
+            'button_text_color',
+            [
+                'label' => __('Text Color', 'simple-pricing-table-elementor'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .button-wrapper .button-text' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'button_background',
+                'types' => ['classic', 'gradient'],
+                'exclude' => ['image'],
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .button-wrapper .button-link',
+                'fields_options' => [
+                    'background' => [
+                        'default' => 'classic',
+                    ],
+                ]
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'tab_button_hover',
+            [
+                'label' => __('Hover', 'simple-pricing-table-elementor')
+            ]
+        );
+
+        $this->add_control(
+            'buttonn_hover_color',
+            [
+                'label' => __('Text Color', 'simple-pricing-table-elementor'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .button-wrapper .button-link:hover .button-text, {{WRAPPER}} .pricing-table-elementor-widget.style-1 .button-wrapper .button-link:focus .button-text' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'button_background_hover',
+                'types' => ['classic', 'gradient'],
+                'exclude' => ['image'],
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .button-wrapper .button-link:hover, {{WRAPPER}} .pricing-table-elementor-widget.style-1 .button-wrapper .button-link:focus',
+                'fields_options' => [
+                    'background' => [
+                        'default' => 'classic',
+                    ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'button_hover_border_color',
+            [
+                'label' => __('Border Color', 'simple-pricing-table-elementor'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .button-wrapper .button-link:hover, {{WRAPPER}} .pricing-table-elementor-widget.style-1 .button- .button-link:focus' => 'border-color: {{VALUE}};',
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'button_hover_animation',
+            [
+                'label' => __('Hover Animation', 'simple-pricing-table-elementor'),
+                'type' => Controls_Manager::HOVER_ANIMATION,
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->end_controls_tabs();
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'button_border',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .button-wrapper .button-link',
+                'separator' => 'before'
+            ]
+        );
+
+        $this->add_responsive_control(
+            'button_border_radius',
+            [
+                'label' => __('Border Radius', 'simple-pricing-table-elementor'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+                'selectors' => [
+                    '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .button-wrapper .button-link' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'button_box_shadow',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .button-wrapper .button-link',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'button_text_padding',
+            [
+                'label' => __('Padding', 'simple-pricing-table-elementor'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
+                'selectors' => [
+                    '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .button-wrapper .button-link' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+                'separator' => 'before'
+            ]
+        );
+
         $this->end_controls_section();
         /**  Button Section End **/
     }
@@ -1329,12 +1481,24 @@ class PricingTable extends Widget_Base
 
                         ?>
                         <div class="<?php echo $buttonClasses; ?>">
-                            <a <?php echo $this->get_render_attribute_string('button_link'); ?> class="button-link">
+
+                            <?php
+                            $btnLinkClass = 'button-link';
+                            if ($settings['button_hover_animation']) {
+                                $btnLinkClass .= ' elementor-animation-' . $settings['button_hover_animation'];
+                            }
+
+                            $this->add_render_attribute('button_class', 'class', $btnLinkClass);
+                            ?>
+
+                            <a <?php echo $this->get_render_attribute_string('button_link');
+                            echo $this->get_render_attribute_string('button_class'); ?>>
                                 <span class="button-text">
                                     <?php echo $settings['button_text']; ?>
                                 </span>
                             </a>
                         </div>
+
                     <?php endif; ?>
 
                 <?php endif; ?>
@@ -1433,12 +1597,20 @@ class PricingTable extends Widget_Base
                                                                 <# if(settings.button_full_width !=='yes' ) { button_classes
                                                                     +=' flex' ; } #>
                                                                     <div class="{{button_classes}}">
-                                                                        <a href="{{settings.button_link.url}}"
-                                                                            class="button-link">
-                                                                            <span class="button-text">
-                                                                                {{{settings.button_text}}}
-                                                                            </span>
-                                                                        </a>
+
+                                                                        <# var btn_link_class='button-link' ; #>
+                                                                            <# if(settings.button_hover_animation !=='' ) {
+                                                                                btn_link_class +=' elementor-animation-' +
+                                                                                settings.button_hover_animation; }
+                                                                                view.addRenderAttribute( 'button_class' ,
+                                                                                { 'class' : btn_link_class } ); #>
+                                                                                <a href="{{settings.button_link.url}}" {{{
+                                                                                    view.getRenderAttributeString( 'button_class'
+                                                                                    ) }}}>
+                                                                                    <span class="button-text">
+                                                                                        {{{settings.button_text}}}
+                                                                                    </span>
+                                                                                </a>
                                                                     </div>
                                                                     <# } #>
                             </div>
