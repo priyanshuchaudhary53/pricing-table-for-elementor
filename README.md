@@ -4,7 +4,7 @@ Pricing Table for Elementor is a dynamic and user-friendly plugin designed to en
 
 ## Screenshots
 
-![fgfd](https://i.yourimageshare.com/FmmS1A52Qy.webp "Table Style 1")
+![fgfd](https://i.yourimageshare.com/ktpRkBsoHg.webp "Table Style 1")
 
 ## How to Install
 
