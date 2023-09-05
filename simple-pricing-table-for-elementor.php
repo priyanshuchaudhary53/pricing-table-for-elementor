@@ -4,7 +4,7 @@
  * 
  * @package SimplePricingTableElementor
  * 
- * Plugin Name: Pricing Table for Elementor
+ * Plugin Name: Simple Pricing Table for Elementor
  * Description: The Pricing Table for Elementor lets you create stunning, customizable pricing tables to highlight your offerings and boost conversions.
  * Plugin URI: 
  * Version:     0.1.0
