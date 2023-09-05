@@ -16,7 +16,7 @@ Pricing Table for Elementor is a dynamic and user-friendly plugin designed to en
 
 ### From this repository
 
-Go to the <a href="#">releases</a> section of the repository and download the most recent release.
+Go to the <a href="https://github.com/priyanshuchaudhary53/pricing-table-for-elementor/releases">releases</a> section of the repository and download the most recent release.
 
 Then, from your WordPress administration panel, go to Plugins > Add New and click the Upload Plugin button at the top of the page.
 
