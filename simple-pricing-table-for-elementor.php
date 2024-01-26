@@ -11,7 +11,11 @@
  * Author:      Priyanshu
  * Author URI:  https://github.com/priyanshuchaudhary53
  * Text Domain: simple-pricing-table-elementor
+ * License:     GPL-3.0-only
+ * License URI: https://opensource.org/licenses/GPL-3.0
  */
+
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly  
 
 define('PRICING_TABLE_FOR_ELEMENTOR', __FILE__);
 

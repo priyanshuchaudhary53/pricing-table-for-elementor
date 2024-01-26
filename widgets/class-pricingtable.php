@@ -63,7 +63,7 @@ class PricingTable extends Widget_Base
      */
     public function get_title()
     {
-        return __('Pricing Table', 'simple-pricing-table-elementor');
+        return __('Pricing Table', 'simple-pricing-table-for-elementor');
     }
 
     /**
@@ -128,7 +128,7 @@ class PricingTable extends Widget_Base
         $this->start_controls_section(
             'badge_section',
             [
-                'label' => __('Badge', 'simple-pricing-table-elementor'),
+                'label' => __('Badge', 'simple-pricing-table-for-elementor'),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -136,7 +136,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'show_badge',
             [
-                'label' => __('Show Badge', 'simple-pricing-table-elementor'),
+                'label' => __('Show Badge', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
                 'default' => 'yes',
@@ -147,9 +147,9 @@ class PricingTable extends Widget_Base
             'badge_text',
             [
                 'type' => Controls_Manager::TEXT,
-                'label' => __('Badge Text', 'simple-pricing-table-elementor'),
+                'label' => __('Badge Text', 'simple-pricing-table-for-elementor'),
                 'input_type' => 'text',
-                'default' => __('Most popular', 'simple-pricing-table-elementor'),
+                'default' => __('Most popular', 'simple-pricing-table-for-elementor'),
                 'condition' => [
                     'show_badge' => 'yes',
                 ],
@@ -163,7 +163,7 @@ class PricingTable extends Widget_Base
         $this->start_controls_section(
             'icon_section',
             [
-                'label' => __('Icon', 'simple-pricing-table-elementor'),
+                'label' => __('Icon', 'simple-pricing-table-for-elementor'),
                 'tab' => Controls_Manager::TAB_CONTENT,
                 'condition' => [
                     'pricing_table_style' => 'style1'
@@ -174,7 +174,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'show_icon',
             [
-                'label' => __('Show Icon', 'simple-pricing-table-elementor'),
+                'label' => __('Show Icon', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
                 'default' => 'yes',
@@ -184,7 +184,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'main_icon',
             [
-                'label' => __('Main Icon', 'simple-pricing-table-elementor'),
+                'label' => __('Main Icon', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
                     'value' => 'fas fa-bolt',
@@ -204,7 +204,7 @@ class PricingTable extends Widget_Base
         $this->start_controls_section(
             'content_section',
             [
-                'label' => __('Content', 'simple-pricing-table-elementor'),
+                'label' => __('Content', 'simple-pricing-table-for-elementor'),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -213,10 +213,10 @@ class PricingTable extends Widget_Base
             'package',
             [
                 'type' => Controls_Manager::TEXT,
-                'label' => __('Package', 'simple-pricing-table-elementor'),
+                'label' => __('Package', 'simple-pricing-table-for-elementor'),
                 'input_type' => 'text',
-                'default' => __('Basic', 'simple-pricing-table-elementor'),
-                'placeholder' => __('Package name', 'simple-pricing-table-elementor'),
+                'default' => __('Basic', 'simple-pricing-table-for-elementor'),
+                'placeholder' => __('Package name', 'simple-pricing-table-for-elementor'),
             ]
         );
 
@@ -224,10 +224,10 @@ class PricingTable extends Widget_Base
             'package_description',
             [
                 'type' => Controls_Manager::TEXTAREA,
-                'label' => __('Description', 'simple-pricing-table-elementor'),
+                'label' => __('Description', 'simple-pricing-table-for-elementor'),
                 'rows' => 5,
-                'default' => __('A single license. Perfect for freelance designers or developers.', 'simple-pricing-table-elementor'),
-                'placeholder' => __('Type package description here', 'simple-pricing-table-elementor'),
+                'default' => __('A single license. Perfect for freelance designers or developers.', 'simple-pricing-table-for-elementor'),
+                'placeholder' => __('Type package description here', 'simple-pricing-table-for-elementor'),
             ]
         );
 
@@ -235,10 +235,10 @@ class PricingTable extends Widget_Base
             'package_price',
             [
                 'type' => Controls_Manager::TEXT,
-                'label' => __('Price', 'simple-pricing-table-elementor'),
+                'label' => __('Price', 'simple-pricing-table-for-elementor'),
                 'input' => 'text',
-                'default' => __('$24', 'simple-pricing-table-elementor'),
-                'placeholder' => __('Package price', 'simple-pricing-table-elementor'),
+                'default' => __('$24', 'simple-pricing-table-for-elementor'),
+                'placeholder' => __('Package price', 'simple-pricing-table-for-elementor'),
             ]
         );
 
@@ -246,11 +246,11 @@ class PricingTable extends Widget_Base
             'package_duration',
             [
                 'type' => Controls_Manager::SELECT,
-                'label' => __('Duration', 'simple-pricing-table-elementor'),
+                'label' => __('Duration', 'simple-pricing-table-for-elementor'),
                 'options' => [
-                    'monthly' => __('Monthly', 'simple-pricing-table-elementor'),
-                    'yearly' => __('Yearly', 'simple-pricing-table-elementor'),
-                    'lifetime' => __('Lifetime', 'simple-pricing-table-elementor'),
+                    'monthly' => __('Monthly', 'simple-pricing-table-for-elementor'),
+                    'yearly' => __('Yearly', 'simple-pricing-table-for-elementor'),
+                    'lifetime' => __('Lifetime', 'simple-pricing-table-for-elementor'),
                 ],
                 'default' => 'monthly',
             ]
@@ -261,27 +261,27 @@ class PricingTable extends Widget_Base
         $repeater->add_control(
             'item_title',
             [
-                'label' => __('Title', 'simple-pricing-table-elementor'),
+                'label' => __('Title', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::TEXT,
-                'default' => __('Title', 'simple-pricing-table-elementor'),
-                'placeholder' => __('Title', 'simple-pricing-table-elementor'),
+                'default' => __('Title', 'simple-pricing-table-for-elementor'),
+                'placeholder' => __('Title', 'simple-pricing-table-for-elementor'),
             ]
         );
 
         $repeater->add_control(
             'item_description',
             [
-                'label' => __('Description', 'simple-pricing-table-elementor'),
+                'label' => __('Description', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 5,
-                'default' => __('Description', 'simple-pricing-table-elementor'),
+                'default' => __('Description', 'simple-pricing-table-for-elementor'),
             ]
         );
 
         $repeater->add_control(
             'item_icon',
             [
-                'label' => __('Icon', 'simple-pricing-table-elementor'),
+                'label' => __('Icon', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::ICONS,
             ]
         );
@@ -289,29 +289,29 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'package_pros',
             [
-                'label' => __('Pros', 'simple-pricing-table-elementor'),
+                'label' => __('Pros', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'item_title' => __('Unilimited viewers', 'simple-pricing-table-elementor'),
-                        'item_description' => __('Easily customizable global styles', 'simple-pricing-table-elementor'),
+                        'item_title' => __('Unilimited viewers', 'simple-pricing-table-for-elementor'),
+                        'item_description' => __('Easily customizable global styles', 'simple-pricing-table-for-elementor'),
                         'item_icon' => [
                             'value' => 'fas fa-eye',
                             'library' => 'fa-solid',
                         ],
                     ],
                     [
-                        'item_title' => __('Upto 2 editors', 'simple-pricing-table-elementor'),
-                        'item_description' => __('Easily customizable global styles', 'simple-pricing-table-elementor'),
+                        'item_title' => __('Upto 2 editors', 'simple-pricing-table-for-elementor'),
+                        'item_description' => __('Easily customizable global styles', 'simple-pricing-table-for-elementor'),
                         'item_icon' => [
                             'value' => 'fas fa-user-friends',
                             'library' => 'fa-solid',
                         ],
                     ],
                     [
-                        'item_title' => __('Upto 3 projects', 'simple-pricing-table-elementor'),
-                        'item_description' => __('Easily customizable global styles', 'simple-pricing-table-elementor'),
+                        'item_title' => __('Upto 3 projects', 'simple-pricing-table-for-elementor'),
+                        'item_description' => __('Easily customizable global styles', 'simple-pricing-table-for-elementor'),
                         'item_icon' => [
                             'value' => 'fas fa-code-branch',
                             'library' => 'fa-solid',
@@ -329,7 +329,7 @@ class PricingTable extends Widget_Base
         $this->start_controls_section(
             'section_button',
             [
-                'label' => __('Button', 'simple-pricing-table-elementor'),
+                'label' => __('Button', 'simple-pricing-table-for-elementor'),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -338,17 +338,17 @@ class PricingTable extends Widget_Base
             'button_text',
             [
                 'type' => Controls_Manager::TEXT,
-                'label' => __('Text', 'simple-pricing-table-elementor'),
+                'label' => __('Text', 'simple-pricing-table-for-elementor'),
                 'input_type' => 'text',
-                'default' => __('Get started', 'simple-pricing-table-elementor'),
-                'placeholder' => __('Click here', 'simple-pricing-table-elementor'),
+                'default' => __('Get started', 'simple-pricing-table-for-elementor'),
+                'placeholder' => __('Click here', 'simple-pricing-table-for-elementor'),
             ]
         );
 
         $this->add_control(
             'button_link',
             [
-                'label' => __('Link', 'elementor'),
+                'label' => __('Link', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::URL,
                 'default' => [
                     'url' => '#',
@@ -369,7 +369,7 @@ class PricingTable extends Widget_Base
         $this->start_controls_section(
             'style_section',
             [
-                'label' => __('Style', 'simple-pricing-table-elementor'),
+                'label' => __('Style', 'simple-pricing-table-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -377,7 +377,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'container_full_width',
             [
-                'label' => __('Full width', 'simple-pricing-table-elementor'),
+                'label' => __('Full width', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
             ]
@@ -386,7 +386,7 @@ class PricingTable extends Widget_Base
         $this->add_responsive_control(
             'width',
             [
-                'label' => __('Width', 'simple-pricing-table-elementor'),
+                'label' => __('Width', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'range' => [
@@ -416,19 +416,19 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'pricing_table_align',
             [
-                'label' => __('Alignment', 'simple-pricing-table-elementor'),
+                'label' => __('Alignment', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'start' => [
-                        'title' => esc_html__('Left', 'textdomain'),
+                        'title' => esc_html__('Left', 'simple-pricing-table-for-elementor'),
                         'icon' => 'eicon-h-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__('Center', 'textdomain'),
+                        'title' => esc_html__('Center', 'simple-pricing-table-for-elementor'),
                         'icon' => 'eicon-h-align-center',
                     ],
                     'end' => [
-                        'title' => esc_html__('Right', 'textdomain'),
+                        'title' => esc_html__('Right', 'simple-pricing-table-for-elementor'),
                         'icon' => 'eicon-h-align-right',
                     ],
                 ],
@@ -446,7 +446,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'container_full_height',
             [
-                'label' => __('Full Height', 'simple-pricing-table-elementor'),
+                'label' => __('Full Height', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
             ]
@@ -456,10 +456,10 @@ class PricingTable extends Widget_Base
             'pricing_table_style',
             [
                 'type' => Controls_Manager::SELECT,
-                'label' => __('Style', 'simple-pricing-table-elementor'),
+                'label' => __('Style', 'simple-pricing-table-for-elementor'),
                 'options' => [
-                    'style1' => __('Style 1', 'simple-pricing-table-elementor'),
-                    'style2' => __('Style 2', 'simple-pricing-table-elementor'),
+                    'style1' => __('Style 1', 'simple-pricing-table-for-elementor'),
+                    'style2' => __('Style 2', 'simple-pricing-table-for-elementor'),
                 ],
                 'default' => 'style1',
                 'separator' => 'before',
@@ -498,7 +498,7 @@ class PricingTable extends Widget_Base
         $this->add_responsive_control(
             'border_radius',
             [
-                'label' => __('Border Radius', 'simple-pricing-table-elementor'),
+                'label' => __('Border Radius', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -518,7 +518,7 @@ class PricingTable extends Widget_Base
         $this->add_responsive_control(
             'padding',
             [
-                'label' => __('Padding', 'simple-pricing-table-elementor'),
+                'label' => __('Padding', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'rem', 'custom'],
                 'selectors' => [
@@ -537,7 +537,7 @@ class PricingTable extends Widget_Base
         $this->start_controls_section(
             'badge_style_section',
             [
-                'label' => __('Badge', 'simple-pricing-table-elementor'),
+                'label' => __('Badge', 'simple-pricing-table-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'show_badge' => 'yes'
@@ -548,7 +548,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'badge_text_color',
             [
-                'label' => __('Text Color', 'simple-pricing-table-elementor'),
+                'label' => __('Text Color', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget .badge' => 'color: {{VALUE}}',
@@ -559,7 +559,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'badge_bg_color',
             [
-                'label' => __('Background Color', 'simple-pricing-table-elementor'),
+                'label' => __('Background Color', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget .badge' => 'background-color: {{VALUE}}',
@@ -603,7 +603,7 @@ class PricingTable extends Widget_Base
         $this->add_responsive_control(
             'badge_border_radius',
             [
-                'label' => __('Border Radius', 'simple-pricing-table-elementor'),
+                'label' => __('Border Radius', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -623,7 +623,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'badge_padding',
             [
-                'label' => esc_html__('Padding', 'textdomain'),
+                'label' => esc_html__('Padding', 'simple-pricing-table-for-elementor'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -640,7 +640,7 @@ class PricingTable extends Widget_Base
         $this->start_controls_section(
             'main_icon_section',
             [
-                'label' => __('Main Icon', 'simple-pricing-table-elementor'),
+                'label' => __('Main Icon', 'simple-pricing-table-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
                 'condition' => [
                     'show_icon' => 'yes',
@@ -652,7 +652,7 @@ class PricingTable extends Widget_Base
         $this->add_responsive_control(
             'main_icon_size',
             [
-                'label' => __('Size', 'simple-pricing-table-elementor'),
+                'label' => __('Size', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -671,7 +671,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'main_icon_color',
             [
-                'label' => __('Color', 'simple-pricing-table-elementor'),
+                'label' => __('Color', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .main-icon span' => 'color: {{VALUE}}',
@@ -682,7 +682,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'main_icon_bg_color',
             [
-                'label' => __('Background Color', 'simple-pricing-table-elementor'),
+                'label' => __('Background Color', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .main-icon span' => 'background-color: {{VALUE}}',
@@ -693,7 +693,7 @@ class PricingTable extends Widget_Base
         $this->add_responsive_control(
             'main_icon_bg_width',
             [
-                'label' => __('Width', 'simple-pricing-table-elementor'),
+                'label' => __('Width', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -712,7 +712,7 @@ class PricingTable extends Widget_Base
         $this->add_responsive_control(
             'main_icon_bg_height',
             [
-                'label' => __('Height', 'simple-pricing-table-elementor'),
+                'label' => __('Height', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -740,7 +740,7 @@ class PricingTable extends Widget_Base
         $this->add_responsive_control(
             'main_icon_border_radius',
             [
-                'label' => __('Border Radius', 'simple-pricing-table-elementor'),
+                'label' => __('Border Radius', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -760,7 +760,7 @@ class PricingTable extends Widget_Base
         $this->add_responsive_control(
             'main_icon_spacing',
             [
-                'label' => __('Bottom Margin', 'simple-pricing-table-elementor'),
+                'label' => __('Bottom Margin', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -783,7 +783,7 @@ class PricingTable extends Widget_Base
         $this->start_controls_section(
             'package_section',
             [
-                'label' => __('Package', 'simple-pricing-table-elementor'),
+                'label' => __('Package', 'simple-pricing-table-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -791,7 +791,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'package_color',
             [
-                'label' => __('Color', 'simple-pricing-table-elementor'),
+                'label' => __('Color', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget .package' => 'color: {{VALUE}}',
@@ -826,7 +826,7 @@ class PricingTable extends Widget_Base
         $this->add_responsive_control(
             'package_spacing',
             [
-                'label' => __('Bottom Margin', 'simple-pricing-table-elementor'),
+                'label' => __('Bottom Margin', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -848,7 +848,7 @@ class PricingTable extends Widget_Base
         $this->start_controls_section(
             'description_section',
             [
-                'label' => __('Description', 'simple-pricing-table-elementor'),
+                'label' => __('Description', 'simple-pricing-table-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -856,7 +856,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'description_color',
             [
-                'label' => __('Color', 'simple-pricing-table-elementor'),
+                'label' => __('Color', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget > .description' => 'color: {{VALUE}}',
@@ -891,7 +891,7 @@ class PricingTable extends Widget_Base
         $this->add_responsive_control(
             'description_spacing',
             [
-                'label' => __('Bottom Margin', 'simple-pricing-table-elementor'),
+                'label' => __('Bottom Margin', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -913,7 +913,7 @@ class PricingTable extends Widget_Base
         $this->start_controls_section(
             'pricing_section',
             [
-                'label' => __('Pricing', 'simple-pricing-table-elementor'),
+                'label' => __('Pricing', 'simple-pricing-table-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -921,7 +921,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'pricing_color',
             [
-                'label' => __('Color', 'simple-pricing-table-elementor'),
+                'label' => __('Color', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget .pricing .price' => 'color: {{VALUE}}',
@@ -956,7 +956,7 @@ class PricingTable extends Widget_Base
         $this->add_responsive_control(
             'pricing_spacing',
             [
-                'label' => __('Bottom Margin', 'simple-pricing-table-elementor'),
+                'label' => __('Bottom Margin', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -974,7 +974,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'pricing_duration_options',
             [
-                'label' => __('Duration', 'simple-pricing-table-elementor'),
+                'label' => __('Duration', 'simple-pricing-table-for-elementor'),
                 'type' => \Elementor\Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -983,7 +983,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'duration_color',
             [
-                'label' => __('Color', 'simple-pricing-table-elementor'),
+                'label' => __('Color', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget .pricing .duration' => 'color: {{VALUE}}',
@@ -1022,7 +1022,7 @@ class PricingTable extends Widget_Base
         $this->start_controls_section(
             'features_section',
             [
-                'label' => __('Features', 'simple-pricing-table-elementor'),
+                'label' => __('Features', 'simple-pricing-table-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1038,7 +1038,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'features_padding',
             [
-                'label' => esc_html__('Padding', 'textdomain'),
+                'label' => esc_html__('Padding', 'simple-pricing-table-for-elementor'),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -1055,7 +1055,7 @@ class PricingTable extends Widget_Base
         $this->start_controls_section(
             'pros_section',
             [
-                'label' => __('Pros', 'simple-pricing-table-elementor'),
+                'label' => __('Pros', 'simple-pricing-table-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1063,7 +1063,7 @@ class PricingTable extends Widget_Base
         $this->add_responsive_control(
             'pros_gaping',
             [
-                'label' => __('Space Between', 'simple-pricing-table-elementor'),
+                'label' => __('Space Between', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -1082,7 +1082,7 @@ class PricingTable extends Widget_Base
         $this->add_responsive_control(
             'pros_icon_spacing',
             [
-                'label' => __('Icon Spacing', 'simple-pricing-table-elementor'),
+                'label' => __('Icon Spacing', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -1101,7 +1101,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'pros_icon_options',
             [
-                'label' => __('Icon', 'simple-pricing-table-elementor'),
+                'label' => __('Icon', 'simple-pricing-table-for-elementor'),
                 'type' => \Elementor\Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -1110,7 +1110,7 @@ class PricingTable extends Widget_Base
         $this->add_responsive_control(
             'pros_icon_size',
             [
-                'label' => __('Size', 'simple-pricing-table-elementor'),
+                'label' => __('Size', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -1129,7 +1129,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'pros_icon_color',
             [
-                'label' => __('Color', 'simple-pricing-table-elementor'),
+                'label' => __('Color', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget .included .item .icon span' => 'color: {{VALUE}}',
@@ -1140,7 +1140,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'pros_icon_bg_color',
             [
-                'label' => __('Background Color', 'simple-pricing-table-elementor'),
+                'label' => __('Background Color', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget .included .item .icon span' => 'background-color: {{VALUE}}',
@@ -1151,7 +1151,7 @@ class PricingTable extends Widget_Base
         $this->add_responsive_control(
             'pros_icon_bg_width',
             [
-                'label' => __('Width', 'simple-pricing-table-elementor'),
+                'label' => __('Width', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -1170,7 +1170,7 @@ class PricingTable extends Widget_Base
         $this->add_responsive_control(
             'pros_icon_bg_height',
             [
-                'label' => __('Height', 'simple-pricing-table-elementor'),
+                'label' => __('Height', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px'],
                 'range' => [
@@ -1197,7 +1197,7 @@ class PricingTable extends Widget_Base
         $this->add_responsive_control(
             'pros_icon_border_radius',
             [
-                'label' => __('Border Radius', 'simple-pricing-table-elementor'),
+                'label' => __('Border Radius', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -1217,7 +1217,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'pros_title_options',
             [
-                'label' => __('Title', 'simple-pricing-table-elementor'),
+                'label' => __('Title', 'simple-pricing-table-for-elementor'),
                 'type' => \Elementor\Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -1226,7 +1226,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'pros_title_color',
             [
-                'label' => __('Color', 'simple-pricing-table-elementor'),
+                'label' => __('Color', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget .included .item .text .heading' => 'color: {{VALUE}}',
@@ -1261,7 +1261,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'pros_description_options',
             [
-                'label' => __('Description', 'simple-pricing-table-elementor'),
+                'label' => __('Description', 'simple-pricing-table-for-elementor'),
                 'type' => \Elementor\Controls_Manager::HEADING,
                 'separator' => 'before',
             ]
@@ -1270,7 +1270,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'pros_description_color',
             [
-                'label' => __('Color', 'simple-pricing-table-elementor'),
+                'label' => __('Color', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget .included .item .text .description' => 'color: {{VALUE}}',
@@ -1309,7 +1309,7 @@ class PricingTable extends Widget_Base
         $this->start_controls_section(
             'button_section',
             [
-                'label' => __('Button', 'simple-pricing-table-elementor'),
+                'label' => __('Button', 'simple-pricing-table-for-elementor'),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -1317,7 +1317,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'button_full_width',
             [
-                'label' => __('Full width', 'simple-pricing-table-elementor'),
+                'label' => __('Full width', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::SWITCHER,
                 'return_value' => 'yes',
                 'default' => 'yes',
@@ -1327,19 +1327,19 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'button_align',
             [
-                'label' => __('Alignment', 'simple-pricing-table-elementor'),
+                'label' => __('Alignment', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::CHOOSE,
                 'options' => [
                     'start' => [
-                        'title' => esc_html__('Left', 'textdomain'),
+                        'title' => esc_html__('Left', 'simple-pricing-table-for-elementor'),
                         'icon' => 'eicon-h-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__('Center', 'textdomain'),
+                        'title' => esc_html__('Center', 'simple-pricing-table-for-elementor'),
                         'icon' => 'eicon-h-align-center',
                     ],
                     'end' => [
-                        'title' => esc_html__('Right', 'textdomain'),
+                        'title' => esc_html__('Right', 'simple-pricing-table-for-elementor'),
                         'icon' => 'eicon-h-align-right',
                     ],
                 ],
@@ -1375,14 +1375,14 @@ class PricingTable extends Widget_Base
         $this->start_controls_tab(
             'tab_button_normal',
             [
-                'label' => __('Normal', 'simple-pricing-table-elementor')
+                'label' => __('Normal', 'simple-pricing-table-for-elementor')
             ]
         );
 
         $this->add_control(
             'button_text_color',
             [
-                'label' => __('Text Color', 'simple-pricing-table-elementor'),
+                'label' => __('Text Color', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget .button-wrapper .button-text' => 'color: {{VALUE}};',
@@ -1410,14 +1410,14 @@ class PricingTable extends Widget_Base
         $this->start_controls_tab(
             'tab_button_hover',
             [
-                'label' => __('Hover', 'simple-pricing-table-elementor')
+                'label' => __('Hover', 'simple-pricing-table-for-elementor')
             ]
         );
 
         $this->add_control(
             'buttonn_hover_color',
             [
-                'label' => __('Text Color', 'simple-pricing-table-elementor'),
+                'label' => __('Text Color', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget .button-wrapper .button-link:hover .button-text, {{WRAPPER}} .pricing-table-elementor-widget .button-wrapper .button-link:focus .button-text' => 'color: {{VALUE}};',
@@ -1443,7 +1443,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'button_hover_border_color',
             [
-                'label' => __('Border Color', 'simple-pricing-table-elementor'),
+                'label' => __('Border Color', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget .button-wrapper .button-link:hover, {{WRAPPER}} .pricing-table-elementor-widget .button- .button-link:focus' => 'border-color: {{VALUE}};',
@@ -1454,7 +1454,7 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'button_hover_animation',
             [
-                'label' => __('Hover Animation', 'simple-pricing-table-elementor'),
+                'label' => __('Hover Animation', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::HOVER_ANIMATION,
             ]
         );
@@ -1475,7 +1475,7 @@ class PricingTable extends Widget_Base
         $this->add_responsive_control(
             'button_border_radius',
             [
-                'label' => __('Border Radius', 'simple-pricing-table-elementor'),
+                'label' => __('Border Radius', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'custom'],
                 'selectors' => [
@@ -1495,7 +1495,7 @@ class PricingTable extends Widget_Base
         $this->add_responsive_control(
             'button_text_padding',
             [
-                'label' => __('Padding', 'simple-pricing-table-elementor'),
+                'label' => __('Padding', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
                 'selectors' => [
@@ -1508,7 +1508,7 @@ class PricingTable extends Widget_Base
         $this->add_responsive_control(
             'button_margin',
             [
-                'label' => __('Top Margin', 'simple-pricing-table-elementor'),
+                'label' => __('Top Margin', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -1550,7 +1550,7 @@ class PricingTable extends Widget_Base
 
         ?>
 
-        <div class="<?php echo $mainClasses; ?>">
+        <div class="<?php echo esc_attr($mainClasses); ?>">
 
             <?php
 
@@ -1566,13 +1566,13 @@ class PricingTable extends Widget_Base
 
             ?>
 
-            <div class="<?php echo $innnerClasses; ?>">
+            <div class="<?php echo esc_attr($innnerClasses); ?>">
 
                 <?php if ($style === 'style1'): ?>
 
                     <?php if ($settings['show_badge'] === 'yes' && $settings['badge_text'] !== ''): ?>
                         <div class="badge">
-                            <?php echo $settings['badge_text']; ?>
+                            <?php echo esc_html($settings['badge_text']); ?>
                         </div>
                     <?php endif; ?>
 
@@ -1585,26 +1585,26 @@ class PricingTable extends Widget_Base
                     <?php endif; ?>
 
                     <div class='package'>
-                        <?php echo $settings['package']; ?>
+                        <?php echo esc_html($settings['package']); ?>
                     </div>
 
                     <?php if ($settings['package_description']): ?>
                         <div class='description'>
-                            <?php echo $settings['package_description'] ?>
+                            <?php echo esc_html($settings['package_description']); ?>
                         </div>
                     <?php endif; ?>
 
                     <div class="pricing">
                         <span class="price">
-                            <?php echo $settings['package_price']; ?>
+                            <?php echo esc_html($settings['package_price']); ?>
                         </span>
                         <?php if ($settings['package_duration'] !== 'lifetime'): ?>
                             <span class="duration">
                                 <?php
                                 if ($settings['package_duration'] === 'monthly') {
-                                    echo '/month';
+                                    echo esc_html('/month');
                                 } elseif ($settings['package_duration'] === 'yearly') {
-                                    echo '/year';
+                                    echo esc_html('/year');
                                 }
                                 ?>
                             </span>
@@ -1623,10 +1623,10 @@ class PricingTable extends Widget_Base
                                         </div>
                                         <div class="text">
                                             <div class="heading">
-                                                <?php echo $item['item_title'] ?>
+                                                <?php echo esc_html($item['item_title']); ?>
                                             </div>
                                             <div class="description">
-                                                <?php echo $item['item_description'] ?>
+                                                <?php echo esc_html($item['item_description']); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -1648,7 +1648,7 @@ class PricingTable extends Widget_Base
                         }
 
                         ?>
-                        <div class="<?php echo $buttonClasses; ?>">
+                        <div class="<?php echo esc_attr($buttonClasses); ?>">
 
                             <?php
                             $btnLinkClass = 'button-link';
@@ -1659,10 +1659,10 @@ class PricingTable extends Widget_Base
                             $this->add_render_attribute('button_class', 'class', $btnLinkClass);
                             ?>
 
-                            <a <?php echo $this->get_render_attribute_string('button_link');
-                            echo $this->get_render_attribute_string('button_class'); ?>>
+                            <a <?php echo wp_kses_data($this->get_render_attribute_string('button_link'));
+                            echo wp_kses_data($this->get_render_attribute_string('button_class')); ?>>
                                 <span class="button-text">
-                                    <?php echo $settings['button_text']; ?>
+                                    <?php echo esc_html($settings['button_text']); ?>
                                 </span>
                             </a>
                         </div>
@@ -1676,26 +1676,26 @@ class PricingTable extends Widget_Base
                     <?php if ($settings['show_badge'] === 'yes' && $settings['badge_text'] !== ''): ?>
                         <div class="badge-wrapper">
                             <div class="badge">
-                                <?php echo $settings['badge_text']; ?>
+                                <?php echo esc_html($settings['badge_text']); ?>
                             </div>
                         </div>
                     <?php endif; ?>
 
                     <div class='package'>
-                        <?php echo $settings['package']; ?>
+                        <?php echo esc_html($settings['package']); ?>
                     </div>
 
                     <div class="pricing">
                         <span class="price">
-                            <?php echo $settings['package_price']; ?>
+                            <?php echo esc_html($settings['package_price']); ?>
                         </span>
                         <?php if ($settings['package_duration'] !== 'lifetime'): ?>
                             <span class="duration">
                                 <?php
                                 if ($settings['package_duration'] === 'monthly') {
-                                    echo '/month';
+                                    echo esc_html('/month');
                                 } elseif ($settings['package_duration'] === 'yearly') {
-                                    echo '/year';
+                                    echo esc_html('/year');
                                 }
                                 ?>
                             </span>
@@ -1704,7 +1704,7 @@ class PricingTable extends Widget_Base
 
                     <?php if ($settings['package_description']): ?>
                         <div class='description'>
-                            <?php echo $settings['package_description'] ?>
+                            <?php echo esc_html($settings['package_description']); ?>
                         </div>
                     <?php endif; ?>
 
@@ -1720,10 +1720,10 @@ class PricingTable extends Widget_Base
                                         </div>
                                         <div class="text">
                                             <div class="heading">
-                                                <?php echo $item['item_title'] ?>
+                                                <?php echo esc_html($item['item_title']); ?>
                                             </div>
                                             <div class="description">
-                                                <?php echo $item['item_description'] ?>
+                                                <?php echo esc_html($item['item_description']); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -1745,7 +1745,7 @@ class PricingTable extends Widget_Base
                         }
 
                         ?>
-                        <div class="<?php echo $buttonClasses; ?>">
+                        <div class="<?php echo esc_attr($buttonClasses); ?>">
 
                             <?php
                             $btnLinkClass = 'button-link';
@@ -1756,10 +1756,10 @@ class PricingTable extends Widget_Base
                             $this->add_render_attribute('button_class', 'class', $btnLinkClass);
                             ?>
 
-                            <a <?php echo $this->get_render_attribute_string('button_link');
-                            echo $this->get_render_attribute_string('button_class'); ?>>
+                            <a <?php echo wp_kses_data($this->get_render_attribute_string('button_link'));
+                            echo wp_kses_data($this->get_render_attribute_string('button_class')); ?>>
                                 <span class="button-text">
-                                    <?php echo $settings['button_text']; ?>
+                                    <?php echo esc_html($settings['button_text']); ?>
                                 </span>
                             </a>
                         </div>

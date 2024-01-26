@@ -80,7 +80,7 @@ final class Pricing_Table_Elementor
         $elements_manager->add_category(
             'pricing_table',
             [
-                'title' => __('Pricing Table', 'simple-pricing-table-elementor'),
+                'title' => __('Pricing Table', 'simple-pricing-table-for-elementor'),
                 'icon' => 'fa fa-plug',
             ]
         );
@@ -108,7 +108,7 @@ final class Pricing_Table_Elementor
      */
     public function i18n()
     {
-        load_plugin_textdomain('simple-pricing-table-elementor');
+        load_plugin_textdomain('simple-pricing-table-for-elementor');
     }
 
     /**
@@ -185,7 +185,7 @@ final class Pricing_Table_Elementor
                 '<div class="notice notice-warning is-dismissible"><p><strong>"%1$s"</strong> requires <strong>"%2$s"</strong> version %3$s or greater.</p></div>',
                 'Pricing Table for Elementor',
                 'Elementor',
-                self::MINIMUM_ELEMENTOR_VERSION
+                esc_html(self::MINIMUM_ELEMENTOR_VERSION)
             ),
         );
     }
@@ -207,7 +207,7 @@ final class Pricing_Table_Elementor
                 '<div class="notice notice-warning is-dismissible"><p><strong>"%1$s"</strong> requires <strong>"%2$s"</strong> version %3$s or greater.</p></div>',
                 'Pricing Table for Elementor',
                 'PHP',
-                self::MINIMUM_PHP_VERSION
+                esc_html(self::MINIMUM_PHP_VERSION)
             ),
         );
     }
