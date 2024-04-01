@@ -6,11 +6,15 @@ Pricing Table for Elementor is a dynamic and user-friendly plugin designed to en
 
 ### Style 1
 
-![Table Style 1 Screenshot](https://i.yourimageshare.com/ktpRkBsoHg.webp "Table Style 1")
+![Table Style 1 Screenshot](https://ps.w.org/simple-pricing-table-for-elementor/assets/screenshot-1.png "Table Style 1")
 
 ### Style 2
 
-![Table Style 2 Screenshot](https://i.yourimageshare.com/lz97gGoj7d.webp "Table Style 2")
+![Table Style 2 Screenshot](https://ps.w.org/simple-pricing-table-for-elementor/assets/screenshot-2.png "Table Style 2")
+
+### Style 3
+
+![Table Style 3 Screenshot](https://ps.w.org/simple-pricing-table-for-elementor/assets/screenshot-3.png "Table Style 3")
 
 ## How to Install
 
