@@ -143,6 +143,10 @@
   color: #000;
 }
 
+.pricing-table-elementor-widget.style-1 .main-icon span svg {
+  height: 20px;
+}
+
 .pricing-table-elementor-widget.style-1 .package {
   font-weight: 500;
   font-size: 22px;
@@ -318,6 +322,10 @@
   background-color: #fff;
 }
 
+.pricing-table-elementor-widget.style-1 .included .item .icon span svg {
+  height: 20px;
+}
+
 .pricing-table-elementor-widget.style-2 .included .item .icon span {
   font-size: 10px;
   color: #000;
@@ -328,6 +336,11 @@
   height: 20px;
   border-radius: 100%;
   background-color: #fff;
+}
+
+
+.pricing-table-elementor-widget.style-2 .included .item .icon span svg {
+  height: 10px;
 }
 
 .pricing-table-elementor-widget.style-3 .included .item .icon span,
@@ -345,6 +358,11 @@
 
 .pricing-table-elementor-widget.style-3 .excluded .item .icon span {
   background-color: #88888888;
+}
+
+.pricing-table-elementor-widget.style-3 .included .item .icon span svg,
+.pricing-table-elementor-widget.style-3 .excluded .item .icon span svg {
+  height: 10px;
 }
 
 .pricing-table-elementor-widget.style-1 .included .item .text .heading {

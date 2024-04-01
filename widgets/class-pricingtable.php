@@ -704,6 +704,7 @@ class PricingTable extends Widget_Base
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .main-icon span' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .main-icon span svg' => 'height: {{SIZE}}{{UNIT}}',
                 ],
             ]
         );
@@ -1168,6 +1169,7 @@ class PricingTable extends Widget_Base
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget .included .item .icon span' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pricing-table-elementor-widget .included .item .icon span svg' => 'height: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -1425,6 +1427,7 @@ class PricingTable extends Widget_Base
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget .excluded .item .icon span' => 'font-size: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pricing-table-elementor-widget .excluded .item .icon span svg' => 'height: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
