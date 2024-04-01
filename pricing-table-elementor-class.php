@@ -30,7 +30,7 @@ final class Pricing_Table_Elementor
      * @since 0.1.0
      * @var string The plugin version.
      */
-    const VERSION = '1.0.0';
+    const VERSION = '0.1.1';
 
     /**
      * Minimum Elementor Version
@@ -80,7 +80,7 @@ final class Pricing_Table_Elementor
         $elements_manager->add_category(
             'pricing_table',
             [
-                'title' => __('Pricing Table', 'simple-pricing-table-for-elementor'),
+                'title' => __('Simple Pricing Table', 'simple-pricing-table-for-elementor'),
                 'icon' => 'fa fa-plug',
             ]
         );

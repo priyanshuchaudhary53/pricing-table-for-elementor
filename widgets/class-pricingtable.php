@@ -283,6 +283,10 @@ class PricingTable extends Widget_Base
             [
                 'label' => __('Icon', 'simple-pricing-table-for-elementor'),
                 'type' => Controls_Manager::ICONS,
+                'default' => [
+                    'value' => 'fas fa-check',
+                    'library' => 'fa-solid',
+                ],
             ]
         );
 
@@ -319,6 +323,38 @@ class PricingTable extends Widget_Base
                     ],
                 ],
                 'title_field' => '{{{ item_title }}}',
+            ]
+        );
+
+        $this->add_control(
+            'package_cons',
+            [
+                'label' => __('Cons', 'simple-pricing-table-for-elementor'),
+                'type' => Controls_Manager::REPEATER,
+                'fields' => $repeater->get_controls(),
+                'prevent_empty' => false,
+                'default' => [
+                    [
+                        'item_title' => __('Automated voicemails', 'simple-pricing-table-for-elementor'),
+                        'item_description' => __('Easily customizable global styles', 'simple-pricing-table-for-elementor'),
+                        'item_icon' => [
+                            'value' => 'fas fa-voicemail',
+                            'library' => 'fa-solid',
+                        ],
+                    ],
+                    [
+                        'item_title' => __('Marketing automation', 'simple-pricing-table-for-elementor'),
+                        'item_description' => __('Easily customizable global styles', 'simple-pricing-table-for-elementor'),
+                        'item_icon' => [
+                            'value' => 'fas fa-funnel-dollar',
+                            'library' => 'fa-solid',
+                        ],
+                    ],
+                ],
+                'title_field' => '{{{ item_title }}}',
+                'condition' => [
+                    'pricing_table_style' => 'style3'
+                ],
             ]
         );
 
@@ -460,6 +496,7 @@ class PricingTable extends Widget_Base
                 'options' => [
                     'style1' => __('Style 1', 'simple-pricing-table-for-elementor'),
                     'style2' => __('Style 2', 'simple-pricing-table-for-elementor'),
+                    'style3' => __('Style 3', 'simple-pricing-table-for-elementor'),
                 ],
                 'default' => 'style1',
                 'separator' => 'before',
@@ -522,7 +559,9 @@ class PricingTable extends Widget_Base
                 'type' => Controls_Manager::DIMENSIONS,
                 'size_units' => ['px', 'rem', 'custom'],
                 'selectors' => [
-                    '{{WRAPPER}} .pricing-table-elementor-widget' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pricing-table-elementor-widget.style-1' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pricing-table-elementor-widget.style-2' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .pricing-table-elementor-widget.style-3 .inner-wrapper' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                     '{{WRAPPER}} .pricing-table-elementor-widget.style-1 .badge' => 'top: {{TOP}}{{UNIT}}; right: {{RIGHT}}{{UNIT}}',
                 ],
                 'separator' => 'before',
@@ -563,6 +602,7 @@ class PricingTable extends Widget_Base
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget .badge' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .pricing-table-elementor-widget.style-3 .badge-wrapper' => 'background-color: {{VALUE}}',
                 ]
             ]
         );
@@ -860,6 +900,7 @@ class PricingTable extends Widget_Base
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget > .description' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .pricing-table-elementor-widget .inner-wrapper > .description' => 'color: {{VALUE}}',
                 ]
             ]
         );
@@ -869,6 +910,7 @@ class PricingTable extends Widget_Base
             [
                 'name' => 'description_typography',
                 'selector' => '{{WRAPPER}} .pricing-table-elementor-widget > .description',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget .inner-wrapper > .description',
             ]
         );
 
@@ -877,6 +919,7 @@ class PricingTable extends Widget_Base
             [
                 'name' => 'description_text_stroke',
                 'selector' => '{{WRAPPER}} .pricing-table-elementor-widget > .description',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget .inner-wrapper > .description',
             ]
         );
 
@@ -884,7 +927,8 @@ class PricingTable extends Widget_Base
             Group_Control_Text_Shadow::get_type(),
             [
                 'name' => 'description_text_shadow',
-                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget > .description'
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget > .description',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget .inner-wrapper > .description',
             ]
         );
 
@@ -902,6 +946,7 @@ class PricingTable extends Widget_Base
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget > .description' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pricing-table-elementor-widget .inner-wrapper > .description' => 'margin-bottom: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -1075,6 +1120,7 @@ class PricingTable extends Widget_Base
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .pricing-table-elementor-widget .included' => 'gap: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pricing-table-elementor-widget .excluded' => 'margin-top: {{SIZE}}{{UNIT}}',
                 ],
             ]
         );
@@ -1305,6 +1351,263 @@ class PricingTable extends Widget_Base
         $this->end_controls_section();
         /**  Pros Section End **/
 
+        /**  Cons Section Start **/
+        $this->start_controls_section(
+            'cons_section',
+            [
+                'label' => __('Cons', 'simple-pricing-table-for-elementor'),
+                'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'pricing_table_style' => 'style3'
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'cons_gaping',
+            [
+                'label' => __('Space Between', 'simple-pricing-table-for-elementor'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 50,
+                        'step' => 1,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .pricing-table-elementor-widget .excluded' => 'gap: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'cons_icon_spacing',
+            [
+                'label' => __('Icon Spacing', 'simple-pricing-table-for-elementor'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 50,
+                        'step' => 1,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .pricing-table-elementor-widget .excluded .item' => 'gap: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'cons_icon_options',
+            [
+                'label' => __('Icon', 'simple-pricing-table-for-elementor'),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'cons_icon_size',
+            [
+                'label' => __('Size', 'simple-pricing-table-for-elementor'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 80,
+                        'step' => 2,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .pricing-table-elementor-widget .excluded .item .icon span' => 'font-size: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'cons_icon_color',
+            [
+                'label' => __('Color', 'simple-pricing-table-for-elementor'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .pricing-table-elementor-widget .excluded .item .icon span' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'cons_icon_bg_color',
+            [
+                'label' => __('Background Color', 'simple-pricing-table-for-elementor'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .pricing-table-elementor-widget .excluded .item .icon span' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'cons_icon_bg_width',
+            [
+                'label' => __('Width', 'simple-pricing-table-for-elementor'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 150,
+                        'step' => 2,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .pricing-table-elementor-widget .excluded .item .icon span' => 'width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'cons_icon_bg_height',
+            [
+                'label' => __('Height', 'simple-pricing-table-for-elementor'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 150,
+                        'step' => 2,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .pricing-table-elementor-widget .excluded .item .icon span' => 'height: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'cons_icon_border',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget .excluded .item .icon span',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'cons_icon_border_radius',
+            [
+                'label' => __('Border Radius', 'simple-pricing-table-for-elementor'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+                'selectors' => [
+                    '{{WRAPPER}} .pricing-table-elementor-widget .excluded .item .icon span' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'cons_icon_box_shadow',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget .excluded .item .icon span',
+            ]
+        );
+
+        $this->add_control(
+            'cons_title_options',
+            [
+                'label' => __('Title', 'simple-pricing-table-for-elementor'),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'cons_title_color',
+            [
+                'label' => __('Color', 'simple-pricing-table-for-elementor'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .pricing-table-elementor-widget .excluded .item .text .heading' => 'color: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'cons_title_typography',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget .excluded .item .text .heading',
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Text_Stroke::get_type(),
+            [
+                'name' => 'cons_title_stroke',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget .excluded .item .text .heading',
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Text_Shadow::get_type(),
+            [
+                'name' => 'cons_title_shadow',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget .excluded .item .text .heading'
+            ]
+        );
+
+        $this->add_control(
+            'cons_description_options',
+            [
+                'label' => __('Description', 'simple-pricing-table-for-elementor'),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'cons_description_color',
+            [
+                'label' => __('Color', 'simple-pricing-table-for-elementor'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .pricing-table-elementor-widget .excluded .item .text .description' => 'color: {{VALUE}}',
+                ]
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'cons_description_typography',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget .excluded .item .text .description',
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Text_Stroke::get_type(),
+            [
+                'name' => 'cons_description_stroke',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget .excluded .item .text .description',
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Text_Shadow::get_type(),
+            [
+                'name' => 'cons_description_shadow',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget .excluded .item .text .description'
+            ]
+        );
+
+        $this->end_controls_section();
+        /**  Pros Section End **/
+
         /**  Button Section Start **/
         $this->start_controls_section(
             'button_section',
@@ -1523,6 +1826,24 @@ class PricingTable extends Widget_Base
             ]
         );
 
+        $this->add_responsive_control(
+            'button_margin_bottom',
+            [
+                'label' => __('Bottom Margin', 'simple-pricing-table-for-elementor'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                        'step' => 1
+                    ]
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .pricing-table-elementor-widget .button-wrapper .button-link' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
         $this->end_controls_section();
         /**  Button Section End **/
     }
@@ -1558,10 +1879,18 @@ class PricingTable extends Widget_Base
 
             $style = $settings['pricing_table_style'];
 
-            if ($style === 'style1') {
-                $innnerClasses .= ' style-1';
-            } elseif ($style === 'style2') {
-                $innnerClasses .= ' style-2';
+            switch ($style) {
+                case 'style1':
+                    $innnerClasses .= ' style-1';
+                    break;
+                case 'style2':
+                    $innnerClasses .= ' style-2';
+                    break;
+                case 'style3':
+                    $innnerClasses .= ' style-3';
+                    break;
+                default:
+                    break;
             }
 
             ?>
@@ -1768,6 +2097,133 @@ class PricingTable extends Widget_Base
 
                 <?php endif; ?>
 
+                <?php if ($style === 'style3'): ?>
+
+                    <?php if ($settings['show_badge']): ?>
+                        <div class="badge-wrapper">
+                            <?php if($settings['badge_text'] !== ''): ?>
+                                <div class="badge">
+                                    <?php echo esc_html($settings['badge_text']); ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="inner-wrapper">
+                        
+                        <div class="package">
+                            <?php echo esc_html($settings['package']); ?>
+                        </div>
+
+                        <?php if ($settings['package_description']): ?>
+                            <div class="description">
+                                <?php echo esc_html($settings['package_description']); ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <div class="pricing">
+                            <span class="price">
+                                <?php echo esc_html($settings['package_price']); ?>
+                            </span>
+                            <?php if ($settings['package_duration'] !== 'lifetime'): ?>
+                                <span class="duration">
+                                    <?php
+                                    if ($settings['package_duration'] === 'monthly') {
+                                        echo esc_html('/month');
+                                    } elseif ($settings['package_duration'] === 'yearly') {
+                                        echo esc_html('/year');
+                                    }
+                                    ?>
+                                </span>
+                            <?php endif; ?>
+                        </div>
+
+                        <?php if ($settings['button_text'] !== ''): ?>
+
+                            <?php if (!empty($settings['button_link']['url'])) {
+                                $this->add_link_attributes('button_link', $settings['button_link']);
+                            }
+
+                            $buttonClasses = 'button-wrapper';
+
+                            if ($settings['button_full_width'] !== 'yes') {
+                                $buttonClasses .= ' flex';
+                            }
+
+                            ?>
+                            <div class="<?php echo esc_attr($buttonClasses); ?>">
+
+                                <?php
+                                $btnLinkClass = 'button-link';
+                                if ($settings['button_hover_animation']) {
+                                    $btnLinkClass .= ' elementor-animation-' . $settings['button_hover_animation'];
+                                }
+
+                                $this->add_render_attribute('button_class', 'class', $btnLinkClass);
+                                ?>
+
+                                <a <?php echo wp_kses_data($this->get_render_attribute_string('button_link'));
+                                echo wp_kses_data($this->get_render_attribute_string('button_class')); ?>>
+                                    <span class="button-text">
+                                        <?php echo esc_html($settings['button_text']); ?>
+                                    </span>
+                                </a>
+                            </div>
+
+                        <?php endif; ?>
+
+                        <div class="features">
+                            
+                            <?php if ($settings['package_pros']): ?>
+                                <div class="included">
+                                    <?php foreach ($settings['package_pros'] as $item): ?>
+                                        <div class="item">
+                                            <div class="icon">
+                                                <span>
+                                                    <?php Icons_Manager::render_icon($item['item_icon'], ['aria-hidden' => 'true']); ?>
+                                                </span>
+                                            </div>
+                                            <div class="text">
+                                                <div class="heading">
+                                                    <?php echo esc_html($item['item_title']); ?>
+                                                </div>
+                                                <div class="description">
+                                                    <?php echo esc_html($item['item_description']); ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if ($settings['package_cons']): ?>
+                                <div class="excluded">
+                                    <?php foreach ($settings['package_cons'] as $item): ?>
+                                        <div class="item">
+                                            <div class="icon">
+                                                <span>
+                                                    <?php Icons_Manager::render_icon($item['item_icon'], ['aria-hidden' => 'true']); ?>
+                                                </span>
+                                            </div>
+                                            <div class="text">
+                                                <div class="heading">
+                                                    <?php echo esc_html($item['item_title']); ?>
+                                                </div>
+                                                <div class="description">
+                                                    <?php echo esc_html($item['item_description']); ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endif; ?>
+
+                        </div>
+
+                    </div>
+
+                <?php endif; ?>
+
             </div>
 
         </div>
@@ -1801,6 +2257,8 @@ class PricingTable extends Widget_Base
                             inner_classes +=' style-1' ; 
                         } else if (settings.pricing_table_style==='style2' ) {
                             inner_classes +=' style-2' ;
+                        } else if (settings.pricing_table_style==='style3') {
+                            inner_classes +=' style-3' ;
                         }#>
 
                         <div class="{{inner_classes}}">
@@ -1968,6 +2426,123 @@ class PricingTable extends Widget_Base
                                     </div>
                                 <# } #>
 
+                            <# } #>
+
+                            <# if(settings.pricing_table_style==='style3') { #>
+                            
+                                <# if(settings.show_badge==='yes') { #>
+                                    <div class="badge-wrapper">
+                                        <# if(settings.badge_text !=='') { #>
+                                            <div class="badge">
+                                                {{{settings.badge_text}}}
+                                            </div>
+                                        <# } #>
+                                    </div>
+                                <# } #>
+
+                                <div class="inner-wrapper">
+                                    
+                                    <div class="package">
+                                        {{{settings.package}}}
+                                    </div>
+
+                                    <# if (settings.package_description) { #>
+                                        <div class='description'>
+                                            {{{settings.package_description}}}
+                                        </div>
+                                    <# } #>
+
+                                    <div class="pricing">
+                                        <span class="price">{{{settings.package_price}}}</span>
+                                        <# if (settings.package_duration !=='lifetime' ) { 
+                                            if (settings.package_duration==='monthly' ) { 
+                                                var duration_text='/month' 
+                                            } else { 
+                                                duration_text='/year' 
+                                            }
+                                        #>
+                                        <span class="duration">{{{duration_text}}}</span>
+                                        <# } #>
+                                    </div>
+
+                                    <# if(settings.button_text !=='' ) { #>
+                                        <# var button_classes='button-wrapper' ; #>
+                                        <# if(settings.button_full_width !=='yes' ) {
+                                            button_classes +=' flex' ; 
+                                        } #>
+                                        <div class="{{button_classes}}">
+
+                                            <# var btn_link_class='button-link' ;
+                                            if(settings.button_hover_animation !=='') { 
+                                                btn_link_class +=' elementor-animation-' + settings.button_hover_animation; 
+                                            }
+                                            view.addRenderAttribute( 'button_class', { 'class' : btn_link_class } ); #>
+                                            <a href="{{settings.button_link.url}}" {{{ view.getRenderAttributeString( 'button_class') }}}>
+                                                <span class="button-text">
+                                                    {{{settings.button_text}}}
+                                                </span>
+                                            </a>
+                                        </div>
+                                    <# } #>
+
+                                    <div class="features">
+
+                                        <# if (settings.package_pros) { #>
+                                            <div class="included">
+                                                <# _.each(settings.package_pros, function(item, index) { #>
+                                                    <div class="item">
+                                                        <# if (item.icon || item.item_icon.value) { 
+                                                            iconsHTML[index]=elementor.helpers.renderIcon(view, item.item_icon, { 'aria-hidden':true }, 'i', 'object');#>
+                                                            <div
+                                                                class="icon">
+                                                                <span>{{{iconsHTML[
+                                                                    index
+                                                                    ].value}}}</span>
+                                                            </div>
+                                                        <# } #>
+                                                        <div class="text">
+                                                            <div class="heading">
+                                                                {{{item.item_title}}}
+                                                            </div>
+                                                            <div class="description">
+                                                                {{{item.item_description}}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <# } ); #>
+                                            </div>
+                                        <# } #>
+
+                                        <# if (settings.package_cons) { #>
+                                            <div class="excluded">
+                                                <# _.each(settings.package_cons, function(item, index) { #>
+                                                    <div class="item">
+                                                        <# if (item.icon || item.item_icon.value) { 
+                                                            iconsHTML[index]=elementor.helpers.renderIcon(view, item.item_icon, { 'aria-hidden':true }, 'i', 'object');#>
+                                                            <div
+                                                                class="icon">
+                                                                <span>{{{iconsHTML[
+                                                                    index
+                                                                    ].value}}}</span>
+                                                            </div>
+                                                        <# } #>
+                                                        <div class="text">
+                                                            <div class="heading">
+                                                                {{{item.item_title}}}
+                                                            </div>
+                                                            <div class="description">
+                                                                {{{item.item_description}}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <# } ); #>
+                                            </div>
+                                        <# } #>
+
+                                    </div>
+
+                                </div>
+                            
                             <# } #>
 
                         </div>
