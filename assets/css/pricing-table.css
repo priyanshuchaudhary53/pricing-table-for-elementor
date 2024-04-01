@@ -54,6 +54,20 @@
   position: relative;
 }
 
+.pricing-table-elementor-widget.style-3 {
+  background-color: #fff;
+  border-radius: 16px;
+  /* border: 1px solid rgba(47, 43, 67, 0.1); */
+  box-shadow: inset 0 -1px #2f2b431a, 0 1px 3px #2f2b431a;
+  display: flex;
+  flex-direction: column;
+  overflow: clip;
+}
+
+.pricing-table-elementor-widget.style-3 .inner-wrapper {
+  padding: 24px;
+}
+
 .pricing-table-elementor-widget.style-1 .badge {
   position: absolute;
   top: 24px;
@@ -91,6 +105,26 @@
   font-weight: 700;
 }
 
+.pricing-table-elementor-widget.style-3 .badge-wrapper {
+  background-color: #8BAAAD;
+  min-height: 12px;
+}
+
+.pricing-table-elementor-widget.style-3 .badge-wrapper:has(.badge) {
+  background-color: transparent;
+}
+
+.pricing-table-elementor-widget.style-3 .badge {
+  background-color: #8BAAAD;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 160%;
+  padding: 6px 15px;
+}
+
 .pricing-table-elementor-widget.style-1 .main-icon {
   margin-bottom: 16px;
 }
@@ -125,6 +159,15 @@
   line-height: 150%;
 }
 
+.pricing-table-elementor-widget.style-3 .package {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 140%;
+  color: rgb(47, 43, 67);
+  text-align: center;
+  margin-bottom: 15px;
+}
+
 .pricing-table-elementor-widget.style-1 > .description,
 .pricing-table-elementor-widget.style-1 .pricing .duration {
   font-weight: 400;
@@ -135,11 +178,27 @@
 }
 
 .pricing-table-elementor-widget.style-2 > .description,
-.pricing-table-elementor-widget.style-2 .included .item .text .description {
+.pricing-table-elementor-widget.style-2 .included .item .text .description,
+.pricing-table-elementor-widget.style-3 .included .item .text .description,
+.pricing-table-elementor-widget.style-3 .excluded .item .text .description {
   color: #888888;
   font-size: 14px;
   font-weight: 400;
   line-height: 150%;
+}
+
+.pricing-table-elementor-widget.style-3 .excluded .item .text .description {
+  text-decoration: line-through;
+  color: #88888888;
+}
+
+.pricing-table-elementor-widget.style-3 .inner-wrapper > .description {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 160%;
+  color: rgb(47, 43, 67);
+  margin-bottom: 20px;
 }
 
 .pricing-table-elementor-widget.style-2 .included .item .text .heading {
@@ -147,6 +206,20 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 150%;
+}
+
+.pricing-table-elementor-widget.style-3 .included .item .text .heading,
+.pricing-table-elementor-widget.style-3 .excluded .item .text .heading {
+  color: rgb(47, 43, 67);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+.pricing-table-elementor-widget.style-3 .excluded .item .text .heading {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+  color: #88888888;
 }
 
 .pricing-table-elementor-widget.style-2 .pricing .duration {
@@ -159,6 +232,11 @@
 .pricing-table-elementor-widget.style-1 > .description,
 .pricing-table-elementor-widget.style-1 .pricing {
   margin-bottom: 16px;
+}
+
+.pricing-table-elementor-widget.style-3 .pricing {
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 .pricing-table-elementor-widget.style-1 .pricing .price {
@@ -176,6 +254,19 @@
   line-height: 150%;
 }
 
+.pricing-table-elementor-widget.style-3 .pricing .price {
+  font-weight: 700;
+  color: rgb(47, 43, 67);
+  font-size: 48px;
+} 
+
+.pricing-table-elementor-widget.style-3 .pricing .duration {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 160%;
+  color: #8BAAAD;
+}
+
 .pricing-table-elementor-widget.style-1 .features {
   border: 1px solid #2f2b431a;
   border-left: none;
@@ -187,13 +278,29 @@
   padding: 24px 0;
 }
 
-.pricing-table-elementor-widget .included {
+.pricing-table-elementor-widget.style-3 .features {
+  border-top: 1px solid #2f2b432f;
+  padding: 25px 0;
+}
+
+.pricing-table-elementor-widget .included,
+.pricing-table-elementor-widget .excluded {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.pricing-table-elementor-widget .included .item {
+.pricing-table-elementor-widget.style-3 .included,
+.pricing-table-elementor-widget.style-3 .excluded {
+  gap: 18px;
+}
+
+.pricing-table-elementor-widget.style-3 .excluded {
+  margin-top: 18px;
+}
+
+.pricing-table-elementor-widget .included .item,
+.pricing-table-elementor-widget .excluded .item {
   display: flex;
   gap: 15px;
 }
@@ -221,6 +328,23 @@
   height: 20px;
   border-radius: 100%;
   background-color: #fff;
+}
+
+.pricing-table-elementor-widget.style-3 .included .item .icon span,
+.pricing-table-elementor-widget.style-3 .excluded .item .icon span {
+  font-size: 10px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  background-color: #8BAAAD;
+}
+
+.pricing-table-elementor-widget.style-3 .excluded .item .icon span {
+  background-color: #88888888;
 }
 
 .pricing-table-elementor-widget.style-1 .included .item .text .heading {
@@ -276,11 +400,26 @@
   background-color: #fff;
 }
 
+.pricing-table-elementor-widget.style-3 .button-wrapper .button-link {
+  display: flex;
+  justify-content: center;
+  padding: 14px 32px;
+  background-color: #8BAAAD;
+  border-radius: 100px;
+  transition: all 0.3s;
+  margin-bottom: 25px;
+}
+
+.pricing-table-elementor-widget.style-3 .button-wrapper .button-link:hover {
+  background-color: #839ea0;
+}
+
 .pricing-table-elementor-widget.style-1 .button-wrapper .button-text {
   font-size: 16px;
   font-weight: 400;
   color: #fff;
   line-height: 150%;
+  text-align: center;
 }
 
 .pricing-table-elementor-widget.style-2 .button-wrapper .button-text {
@@ -288,6 +427,7 @@
   font-size: 14px;
   line-height: 150%;
   font-weight: 500;
+  text-align: center;
 }
 
 .pricing-table-elementor-widget.style-2
@@ -295,4 +435,12 @@
   .button-link:hover
   .button-text {
   color: #000;
+}
+
+.pricing-table-elementor-widget.style-3 .button-wrapper .button-text {
+  color: #fff;
+  font-size: 18px;
+  transition: all 0.3s;
+  font-weight: 500;
+  text-align: center;
 }
