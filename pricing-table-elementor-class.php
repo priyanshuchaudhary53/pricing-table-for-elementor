@@ -5,7 +5,7 @@
  * @category    Class
  * @package     SimplePricingTableElementor
  * @subpackage  WordPress
- * @author      Priyanshu <priyanshuchaudhary53@gmail.com>
+ * @author      Priyanshu <contact@priyanshuc.dev>
  * @copyright   2023 Priyanshu
  * @license     https://opensource.org/licenses/GPL-3.0 GPL-3.0-only
  * @since       0.1.0
@@ -30,7 +30,7 @@ final class Pricing_Table_Elementor
      * @since 0.1.0
      * @var string The plugin version.
      */
-    const VERSION = '0.1.1';
+    const VERSION = '0.1.2';
 
     /**
      * Minimum Elementor Version

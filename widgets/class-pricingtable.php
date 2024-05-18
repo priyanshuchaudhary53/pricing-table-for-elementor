@@ -5,7 +5,7 @@
  * @category    Class
  * @package     SimplePricingTableElementor
  * @subpackage  WordPress
- * @author      Priyanshu <priyanshuchaudhary53@gmail.com>
+ * @author      Priyanshu <contact@priyanshuc.dev>
  * @copyright   2023 Priyanshu
  * @license     https://opensource.org/licenses/GPL-3.0 GPL-3.0-only
  * @since       0.1.0
@@ -223,9 +223,8 @@ class PricingTable extends Widget_Base
         $this->add_control(
             'package_description',
             [
-                'type' => Controls_Manager::TEXTAREA,
+                'type' => Controls_Manager::WYSIWYG,
                 'label' => __('Description', 'simple-pricing-table-for-elementor'),
-                'rows' => 5,
                 'default' => __('A single license. Perfect for freelance designers or developers.', 'simple-pricing-table-for-elementor'),
                 'placeholder' => __('Type package description here', 'simple-pricing-table-for-elementor'),
             ]
@@ -251,8 +250,23 @@ class PricingTable extends Widget_Base
                     'monthly' => __('Monthly', 'simple-pricing-table-for-elementor'),
                     'yearly' => __('Yearly', 'simple-pricing-table-for-elementor'),
                     'lifetime' => __('Lifetime', 'simple-pricing-table-for-elementor'),
+                    'custom' => __('Custom', 'simple-pricing-table-for-elementor'),
                 ],
                 'default' => 'monthly',
+            ]
+        );
+
+        $this->add_control(
+            'package_duration_text',
+            [
+                'type' => Controls_Manager::TEXT,
+                'label' => __('Custom Duration', 'simple-pricing-table-for-elementor'),
+                'input' => 'text',
+                'label_block' => true,
+                'placeholder' => __('Package custom duration', 'simple-pricing-table-for-elementor'),
+                'condition' => [
+                    'package_duration' => 'custom'
+                ],
             ]
         );
 
@@ -388,6 +402,9 @@ class PricingTable extends Widget_Base
                 'type' => Controls_Manager::URL,
                 'default' => [
                     'url' => '#',
+                ],
+                'dynamic' => [
+                    'active' => true,
                 ],
             ]
         );
@@ -1922,7 +1939,7 @@ class PricingTable extends Widget_Base
 
                     <?php if ($settings['package_description']): ?>
                         <div class='description'>
-                            <?php echo esc_html($settings['package_description']); ?>
+                            <?php echo wp_kses_post($settings['package_description']); ?>
                         </div>
                     <?php endif; ?>
 
@@ -1937,6 +1954,8 @@ class PricingTable extends Widget_Base
                                     echo esc_html('/month');
                                 } elseif ($settings['package_duration'] === 'yearly') {
                                     echo esc_html('/year');
+                                } elseif ($settings['package_duration'] === 'custom') {
+                                    echo esc_html($settings['package_duration_text']);
                                 }
                                 ?>
                             </span>
@@ -2028,6 +2047,8 @@ class PricingTable extends Widget_Base
                                     echo esc_html('/month');
                                 } elseif ($settings['package_duration'] === 'yearly') {
                                     echo esc_html('/year');
+                                } elseif ($settings['package_duration'] === 'custom') {
+                                    echo esc_html($settings['package_duration_text']);
                                 }
                                 ?>
                             </span>
@@ -2036,7 +2057,7 @@ class PricingTable extends Widget_Base
 
                     <?php if ($settings['package_description']): ?>
                         <div class='description'>
-                            <?php echo esc_html($settings['package_description']); ?>
+                            <?php echo wp_kses_post($settings['package_description']); ?>
                         </div>
                     <?php endif; ?>
 
@@ -2120,7 +2141,7 @@ class PricingTable extends Widget_Base
 
                         <?php if ($settings['package_description']): ?>
                             <div class="description">
-                                <?php echo esc_html($settings['package_description']); ?>
+                                <?php echo wp_kses_post($settings['package_description']); ?>
                             </div>
                         <?php endif; ?>
 
@@ -2135,6 +2156,8 @@ class PricingTable extends Widget_Base
                                         echo esc_html('/month');
                                     } elseif ($settings['package_duration'] === 'yearly') {
                                         echo esc_html('/year');
+                                    } elseif ($settings['package_duration'] === 'custom') {
+                                        echo esc_html($settings['package_duration_text']);
                                     }
                                     ?>
                                 </span>
@@ -2287,11 +2310,14 @@ class PricingTable extends Widget_Base
 
                                 <div class="pricing">
                                     <span class="price">{{{settings.package_price}}}</span>
-                                    <# if (settings.package_duration !=='lifetime' ) { 
+                                    <# if (settings.package_duration !=='lifetime') { 
+                                        var duration_text;
                                         if (settings.package_duration==='monthly' ) { 
-                                            var duration_text='/month' 
-                                        } else { 
+                                            duration_text='/month' 
+                                        } else if (settings.package_duration==='yearly') { 
                                             duration_text='/year' 
+                                        } else if (settings.package_duration==='custom') {
+                                            duration_text=settings.package_duration_text
                                         }
                                     #>
                                     <span class="duration">{{{duration_text}}}</span>
@@ -2363,11 +2389,14 @@ class PricingTable extends Widget_Base
 
                                 <div class="pricing">
                                     <span class="price">{{{settings.package_price}}}</span>
-                                    <# if (settings.package_duration !=='lifetime' ) { 
+                                    <# if (settings.package_duration !=='lifetime') { 
                                         if (settings.package_duration==='monthly') { 
                                             var duration_text='/month'
-                                        } else {
-                                            duration_text='/year' }
+                                        } else if (settings.package_duration==='yearly') { 
+                                            duration_text='/year' 
+                                        } else if (settings.package_duration==='custom') {
+                                            duration_text=settings.package_duration_text
+                                        }
                                         #>
                                         <span class="duration">{{{duration_text}}}</span>
                                     <# } #>
@@ -2457,11 +2486,13 @@ class PricingTable extends Widget_Base
 
                                     <div class="pricing">
                                         <span class="price">{{{settings.package_price}}}</span>
-                                        <# if (settings.package_duration !=='lifetime' ) { 
+                                        <# if (settings.package_duration !== 'lifetime') { 
                                             if (settings.package_duration==='monthly' ) { 
                                                 var duration_text='/month' 
-                                            } else { 
+                                            } else if (settings.package_duration==='yearly') { 
                                                 duration_text='/year' 
+                                            } else if (settings.package_duration==='custom') {
+                                                duration_text=settings.package_duration_text
                                             }
                                         #>
                                         <span class="duration">{{{duration_text}}}</span>

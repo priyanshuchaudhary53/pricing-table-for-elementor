@@ -52,6 +52,12 @@ Go to Elementor > Settings > Advanced > and set "Load Font Awesome 4 Support" to
 3. Pricing Table Style 3
 
 == Changelog ==
+= 0.1.2 - 2024-05-19 =
+- New: Added custom duration field
+- New: Added dynamic tags support to the button link
+- New: Changed description textarea field to WYSIWYG
+- New: Added suport to render HTML in description
+
 = 0.1.1 - 2024-04-02 = 
 - New: Added New Style Pricing Table (Style 3)
 
