@@ -4,7 +4,7 @@ Tags: elementor, elementor addons, pricing table widget, widget, widget for elem
 Requires at least: 5.9
 Tested up to: 6.4.3
 Requires PHP: 7.4.1
-Stable tag: 0.1.1
+Stable tag: 0.1.2
 License: GPL-3.0-only
 License URI: https://opensource.org/licenses/GPL-3.0
 
