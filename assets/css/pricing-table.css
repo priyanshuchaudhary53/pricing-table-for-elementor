@@ -145,6 +145,7 @@
 
 .pricing-table-elementor-widget.style-1 .main-icon span svg {
   height: 20px;
+  fill: currentColor;
 }
 
 .pricing-table-elementor-widget.style-1 .package {
