@@ -381,6 +381,11 @@
   line-height: 150%;
 }
 
+.pricing-table-elementor-widget .included .item .text .description p,
+.pricing-table-elementor-widget .excluded .item .text .description p {
+  margin-bottom: 0;
+}
+
 .pricing-table-elementor-widget .button-wrapper {
   margin-top: auto;
 }
