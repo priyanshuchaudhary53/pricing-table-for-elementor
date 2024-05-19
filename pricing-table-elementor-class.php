@@ -94,7 +94,7 @@ final class Pricing_Table_Elementor
      */
     public function register_widget_styles()
     {
-        wp_register_style('pricing-table-style', plugins_url('assets/css/pricing-table.css', __FILE__));
+        wp_register_style('pricing-table-style', plugins_url('assets/css/pricing-table.css', __FILE__), [], self::VERSION);
     }
 
     /**
