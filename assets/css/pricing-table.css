@@ -324,6 +324,7 @@
 
 .pricing-table-elementor-widget.style-1 .included .item .icon span svg {
   height: 20px;
+  fill: currentColor;
 }
 
 .pricing-table-elementor-widget.style-2 .included .item .icon span {
@@ -341,6 +342,7 @@
 
 .pricing-table-elementor-widget.style-2 .included .item .icon span svg {
   height: 10px;
+  fill: currentColor;
 }
 
 .pricing-table-elementor-widget.style-3 .included .item .icon span,
@@ -363,6 +365,7 @@
 .pricing-table-elementor-widget.style-3 .included .item .icon span svg,
 .pricing-table-elementor-widget.style-3 .excluded .item .icon span svg {
   height: 10px;
+  fill: currentColor;
 }
 
 .pricing-table-elementor-widget.style-1 .included .item .text .heading {

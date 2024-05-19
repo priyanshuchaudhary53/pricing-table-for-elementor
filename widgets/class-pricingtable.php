@@ -286,7 +286,7 @@ class PricingTable extends Widget_Base
             'item_description',
             [
                 'label' => __('Description', 'simple-pricing-table-for-elementor'),
-                'type' => Controls_Manager::TEXTAREA,
+                'type' => Controls_Manager::WYSIWYG,
                 'rows' => 5,
                 'default' => __('Description', 'simple-pricing-table-for-elementor'),
             ]
@@ -1977,7 +1977,7 @@ class PricingTable extends Widget_Base
                                                 <?php echo esc_html($item['item_title']); ?>
                                             </div>
                                             <div class="description">
-                                                <?php echo esc_html($item['item_description']); ?>
+                                                <?php echo wp_kses_post($item['item_description']); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -2076,7 +2076,7 @@ class PricingTable extends Widget_Base
                                                 <?php echo esc_html($item['item_title']); ?>
                                             </div>
                                             <div class="description">
-                                                <?php echo esc_html($item['item_description']); ?>
+                                                <?php echo wp_kses_post($item['item_description']); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -2214,7 +2214,7 @@ class PricingTable extends Widget_Base
                                                     <?php echo esc_html($item['item_title']); ?>
                                                 </div>
                                                 <div class="description">
-                                                    <?php echo esc_html($item['item_description']); ?>
+                                                    <?php echo wp_kses_post($item['item_description']); ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -2236,7 +2236,7 @@ class PricingTable extends Widget_Base
                                                     <?php echo esc_html($item['item_title']); ?>
                                                 </div>
                                                 <div class="description">
-                                                    <?php echo esc_html($item['item_description']); ?>
+                                                    <?php echo wp_kses_post($item['item_description']); ?>
                                                 </div>
                                             </div>
                                         </div>
