@@ -1967,11 +1967,13 @@ class PricingTable extends Widget_Base
                             <div class="included">
                                 <?php foreach ($settings['package_pros'] as $item): ?>
                                     <div class="item">
-                                        <div class="icon">
-                                            <span>
-                                                <?php Icons_Manager::render_icon($item['item_icon'], ['aria-hidden' => 'true']); ?>
-                                            </span>
-                                        </div>
+                                        <?php if ($item['item_icon']['value']) : ?>
+                                            <div class="icon">
+                                                <span>
+                                                    <?php Icons_Manager::render_icon($item['item_icon'], ['aria-hidden' => 'true']); ?>
+                                                </span>
+                                            </div>
+                                        <?php endif; ?>
                                         <div class="text">
                                             <div class="heading">
                                                 <?php echo esc_html($item['item_title']); ?>
@@ -2066,11 +2068,13 @@ class PricingTable extends Widget_Base
                             <div class="included">
                                 <?php foreach ($settings['package_pros'] as $item): ?>
                                     <div class="item">
-                                        <div class="icon">
-                                            <span>
-                                                <?php Icons_Manager::render_icon($item['item_icon'], ['aria-hidden' => 'true']); ?>
-                                            </span>
-                                        </div>
+                                        <?php if ($item['item_icon']['value']) : ?> 
+                                            <div class="icon">
+                                                <span>
+                                                    <?php Icons_Manager::render_icon($item['item_icon'], ['aria-hidden' => 'true']); ?>
+                                                </span>
+                                            </div>
+                                        <?php endif; ?>
                                         <div class="text">
                                             <div class="heading">
                                                 <?php echo esc_html($item['item_title']); ?>
@@ -2204,11 +2208,13 @@ class PricingTable extends Widget_Base
                                 <div class="included">
                                     <?php foreach ($settings['package_pros'] as $item): ?>
                                         <div class="item">
-                                            <div class="icon">
-                                                <span>
-                                                    <?php Icons_Manager::render_icon($item['item_icon'], ['aria-hidden' => 'true']); ?>
-                                                </span>
-                                            </div>
+                                            <?php if ($item['item_icon']['value']) : ?>
+                                                <div class="icon">
+                                                    <span>
+                                                        <?php Icons_Manager::render_icon($item['item_icon'], ['aria-hidden' => 'true']); ?>
+                                                    </span>
+                                                </div>
+                                            <?php endif; ?>
                                             <div class="text">
                                                 <div class="heading">
                                                     <?php echo esc_html($item['item_title']); ?>
@@ -2226,11 +2232,13 @@ class PricingTable extends Widget_Base
                                 <div class="excluded">
                                     <?php foreach ($settings['package_cons'] as $item): ?>
                                         <div class="item">
-                                            <div class="icon">
-                                                <span>
-                                                    <?php Icons_Manager::render_icon($item['item_icon'], ['aria-hidden' => 'true']); ?>
-                                                </span>
-                                            </div>
+                                            <?php if ($item['item_icon']['value']) : ?>
+                                                <div class="icon">
+                                                    <span>
+                                                        <?php Icons_Manager::render_icon($item['item_icon'], ['aria-hidden' => 'true']); ?>
+                                                    </span>
+                                                </div>
+                                            <?php endif; ?>
                                             <div class="text">
                                                 <div class="heading">
                                                     <?php echo esc_html($item['item_title']); ?>
