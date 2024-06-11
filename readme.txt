@@ -4,7 +4,7 @@ Tags: elementor, elementor addons, pricing table widget, widget, widget for elem
 Requires at least: 5.9
 Tested up to: 6.5.3
 Requires PHP: 7.4.1
-Stable tag: 0.1.3
+Stable tag: 0.1.4
 License: GPL-3.0-only
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -52,7 +52,11 @@ Go to Elementor > Settings > Advanced > and set "Load Font Awesome 4 Support" to
 3. Pricing Table Style 3
 
 == Changelog ==
-= 0.1.3 2024-05-20 =
+= 0.1.4 - 2024-06-13 =
+- Fix: Fixed issue where removing an icon still displayed its background.
+- Fix: Fixed issue with underline appearing on a tag element in some themes.
+
+= 0.1.3 - 2024-05-20 =
 - New: Added support for rendering HTML in the Pros & Cons description
 - Fix: Fixed the issue with the SVG icon color not changing
 
