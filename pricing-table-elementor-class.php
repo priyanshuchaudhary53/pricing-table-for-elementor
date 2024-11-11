@@ -30,7 +30,7 @@ final class Pricing_Table_Elementor
      * @since 0.1.0
      * @var string The plugin version.
      */
-    const VERSION = '0.1.4';
+    const VERSION = '0.1.5';
 
     /**
      * Minimum Elementor Version
