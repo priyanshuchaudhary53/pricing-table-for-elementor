@@ -927,8 +927,7 @@ class PricingTable extends Widget_Base
             Group_Control_Typography::get_type(),
             [
                 'name' => 'description_typography',
-                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget > .description',
-                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget .inner-wrapper > .description',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget > .description, {{WRAPPER}} .pricing-table-elementor-widget .inner-wrapper > .description',
             ]
         );
 
@@ -936,8 +935,7 @@ class PricingTable extends Widget_Base
             Group_Control_Text_Stroke::get_type(),
             [
                 'name' => 'description_text_stroke',
-                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget > .description',
-                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget .inner-wrapper > .description',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget > .description, {{WRAPPER}} .pricing-table-elementor-widget .inner-wrapper > .description',
             ]
         );
 
@@ -945,8 +943,7 @@ class PricingTable extends Widget_Base
             Group_Control_Text_Shadow::get_type(),
             [
                 'name' => 'description_text_shadow',
-                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget > .description',
-                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget .inner-wrapper > .description',
+                'selector' => '{{WRAPPER}} .pricing-table-elementor-widget > .description, {{WRAPPER}} .pricing-table-elementor-widget .inner-wrapper > .description',                
             ]
         );
 
